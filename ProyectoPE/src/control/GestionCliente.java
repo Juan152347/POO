@@ -42,9 +42,9 @@ public class GestionCliente {
 				if (ID == click.getNumeroIdentificacion()) {
 
 					System.out.println("Marque el numero de la opcion que desea modificarr:");
-					System.out.println("1) " + click.getNombreCompleto());
-					System.out.println("2) " + click.getNumeroIdentificacion());
-					System.out.println("3) " + click.getTelefonoContacto());
+					System.out.println("1.Nombre"); 
+					System.out.println("2.ID"); 
+					System.out.println("3.Telefono"); 
 				
 					int p;
 					System.out.println("Ingrese que opcion desa modificar: ");
