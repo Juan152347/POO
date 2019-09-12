@@ -10,7 +10,7 @@ public class ControlAgencia {
 
 	private GestionTours gestiontours;
 
-	private ControlAgencia gestionCliente;
+	private GestionCliente gestionCliente;
 
 	private ArrayList<Tour> listaTours;
 	private ArrayList<Reserva> reservas;
@@ -30,11 +30,13 @@ public class ControlAgencia {
 		this.gestiontours = gestiontours;
 	}
 
-	public ControlAgencia getGestionCliente() {
+	
+
+	public GestionCliente getGestionCliente() {
 		return gestionCliente;
 	}
 
-	public void setGestionCliente(ControlAgencia gestionCliente) {
+	public void setGestionCliente(GestionCliente gestionCliente) {
 		this.gestionCliente = gestionCliente;
 	}
 
