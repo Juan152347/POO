@@ -15,7 +15,7 @@ public class GestionCliente {
 			if (cIdentificacion==cliente.getNumeroIdentificacion()) {
 				for (Reserva reserva : reservas ) {
 					if(cIdentificacion!=reserva.getCliente().getNumeroIdentificacion()) {
-						//listaClientes.remove(index)
+						//listaClientes.remove(index)m
 						System.out.println("la eliminacion ha sido correcta");
 					}
 				}
