@@ -67,7 +67,7 @@ public class GestionCliente {
 					}
 				}
 				
-				else {System.out.println("El cliente solicitado no existe ");}
+				else {System.out.println("El cliente solicitado no exist");}
 			}
 			
 			
