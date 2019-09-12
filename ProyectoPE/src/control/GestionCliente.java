@@ -31,7 +31,7 @@ public class GestionCliente {
 	public void ModificarCliente(long ID, ArrayList<Cliente> listaClientes) {
 
 		Scanner x = new Scanner(System.in);
-		int p;
+		int op=0;
 		do {
 
 			if (VerificarExistencia(ID, listaClientes)) {
@@ -43,8 +43,8 @@ public class GestionCliente {
 				System.out.println("4.salir");
 
 				System.out.println("Ingrese que opcion desa modificar: ");
-				p = x.nextInt();
-				switch (p) {
+				op = x.nextInt();
+				switch (op) {
 
 				case 2:
 
@@ -62,7 +62,7 @@ public class GestionCliente {
 				case 3:
 
 					System.out.println("Ingrese su nuevo numero de contacto");
-					click.setTelefonoContacto(x.next());
+					mod(x.nextLine(),ID,listaClientes);
 					break;
 				}
 			}
@@ -70,7 +70,7 @@ public class GestionCliente {
 			else {
 				System.out.println("El cliente solicitado no exist");
 			}
-		} while (p != 4);
+		} while (op != 4);
 
 	}
 
@@ -94,6 +94,13 @@ public class GestionCliente {
     	for (Cliente cliente : listaCliente) {
     		if(cliente.getNumeroIdentificacion()==ID) {
 				cliente.setNumeroIdentificacion(ID);;
+			}
+		}
+    }
+    public void mod(String telefono,long ID ,ArrayList<Cliente> listaCliente) {
+    	for (Cliente cliente : listaCliente) {
+			if(cliente.getNumeroIdentificacion()==ID) {
+				cliente.setTelefonoContacto(telefono);
 			}
 		}
     }
