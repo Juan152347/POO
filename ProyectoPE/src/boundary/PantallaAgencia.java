@@ -2,8 +2,9 @@ package boundary;
 
 import control.ControlAgencia;
 
-public class PantallaAgencia {
 
+public class PantallaAgencia {
+public int t;
 	private ControlAgencia agencia;
 
 	public PantallaAgencia() {
