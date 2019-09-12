@@ -88,5 +88,13 @@ public class ControlAgencia {
 			System.out.println(reserva.getCliente().getNumeroIdentificacion()+" "+reserva.getCliente().getNombreCompleto()+" "+reserva.getCantidadPersonas()+" "+reserva.getCliente().getTelefonoContacto());
 		}
 	}
+	public boolean validarCliente(long id) {
+		for (Cliente cliente : listaClientes) {
+			if (id == cliente.getNumeroIdentificacion()) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 }
