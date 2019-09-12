@@ -8,9 +8,7 @@ import entity.Tour;
 
 public class GestionCliente {
 	
-	public void insertarCliente() {	
-	}
-		
+
 		
 		
 	public void ModificarCliente(long ID,ArrayList<Cliente> listaClientes) {
@@ -85,6 +83,9 @@ public class GestionCliente {
 			return false;
 		}	
 		
-	}
+	public void insertarCliente() {
+		System.out.println("hola que hace");
 
+	}
+}
 

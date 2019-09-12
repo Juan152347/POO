@@ -38,7 +38,7 @@ public class ControlAgencia {
 		this.gestionCliente = gestionCliente;
 	}
 
-	public ArrayList<Tour> getListatoures() {
+	public ArrayList<Tour> getListaTours() {
 		return listaTours;
 	}
 
