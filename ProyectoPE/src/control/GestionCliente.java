@@ -50,7 +50,7 @@ public class GestionCliente {
 
 					
 					System.out.println("Ingrese su nuevo numero de identificacion: ");
-					
+					mod(ID,listaClientes);
 					break;
 
 				case 1:
@@ -91,7 +91,11 @@ public class GestionCliente {
 		}
     }
     public void mod(long ID,ArrayList<Cliente> listaCliente) {
-    	
+    	for (Cliente cliente : listaCliente) {
+    		if(cliente.getNumeroIdentificacion()==ID) {
+				cliente.setNumeroIdentificacion(ID);;
+			}
+		}
     }
 	public void insertarCliente() {
 		System.out.println("hola que hace");
