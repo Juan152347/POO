@@ -83,6 +83,7 @@ public class GestionTours {
 
 				}
 			}
+			else {System.out.println("EL tour solicitado no existe");}
 		}
 	}
 
