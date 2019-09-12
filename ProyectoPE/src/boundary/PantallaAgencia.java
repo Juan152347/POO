@@ -4,7 +4,7 @@ import control.ControlAgencia;
 
 
 public class PantallaAgencia {
-public int tx;
+public int text;
 	private ControlAgencia agencia;
 
 	public PantallaAgencia() {
