@@ -5,7 +5,7 @@ public class Cliente {
 	private long numeroIdentificacion;
 	private String nombreCompleto;
 	private String telefonoContacto;
-	private int holaperrasaa;
+	
 
 	public long getNumeroIdentificacion() {
 		return numeroIdentificacion;
