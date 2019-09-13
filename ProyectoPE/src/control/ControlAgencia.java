@@ -115,17 +115,24 @@ public class ControlAgencia {
 			}
 		}
 		if (estat && estac) {
+			boolean fval = false;
 			Reserva auxr = new Reserva();
 			auxr.setNumeroReserva(numerodereserva());
 			Calendar cal = Calendar.getInstance();
-			System.out.println("digite la fecha de la reserva");
-			System.out.println("año:");
-			int año = sc.nextInt();
-			System.out.println("mes:");
-			int mes = sc.nextInt();
-			System.out.println("dia:");
-			int dia = sc.nextInt();
-			cal.set(año, mes, dia);
+			while (!fval) {
+				System.out.println("digite la fecha de la reserva");
+				System.out.println("año:");
+				int año = sc.nextInt();
+				System.out.println("mes:");
+				int mes = sc.nextInt();
+				System.out.println("dia:");
+				int dia = sc.nextInt();
+				cal.set(año, mes, dia);
+				fval=validarFecha(cal,auxc,auxt);
+				if(!fval) {
+					System.out.println("hay una reserva para ese tour en esa fecha");
+				}
+			}
 			auxr.setFecha(cal);
 			auxr.setTourReservado(auxt);
 			auxr.setCliente(auxc);
@@ -141,6 +148,15 @@ public class ControlAgencia {
 			}
 		}
 		return i;
+	}
+
+	public boolean validarFecha(Calendar fecha, Cliente cli, Tour tou) {
+		for (Reserva reserva : reservas) {
+			if (cli == reserva.getCliente() && fecha == reserva.getFecha() && tou == reserva.getTourReservado()) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
