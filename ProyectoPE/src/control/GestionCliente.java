@@ -57,7 +57,7 @@ public class GestionCliente {
 
 					
 					System.out.println("Ingrese su nuevo numero de identificacion: ");
-					mod(ID,listaClientes);
+					mod(ID,listaClientes,x.nextLong());
 					break;
 
 				case 1:
@@ -97,10 +97,16 @@ public class GestionCliente {
 			}
 		}
     }
-    public void mod(long ID,ArrayList<Cliente> listaCliente) {
+    public void mod(long ID,ArrayList<Cliente> listaCliente,long IDn) {
+    	boolean idesta=false;
     	for (Cliente cliente : listaCliente) {
-    		if(cliente.getNumeroIdentificacion()==ID) {
-				cliente.setNumeroIdentificacion(ID);;
+			if(IDn==cliente.getNumeroIdentificacion()) {
+				idesta=true;
+			}
+		}
+    	for (Cliente cliente : listaCliente) {
+    		if(cliente.getNumeroIdentificacion()==ID && idesta==false) {
+				cliente.setNumeroIdentificacion(IDn);;
 			}
 		}
     }
