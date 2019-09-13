@@ -128,10 +128,12 @@ public class ControlAgencia {
 				System.out.println("dia:");
 				int dia = sc.nextInt();
 				cal.set(año, mes, dia);
-				fval=validarFecha(cal,auxc,auxt);
-				if(!fval) {
-					System.out.println("hay una reserva para ese tour en esa fecha");
+				fval = validarFecha(cal, auxc, auxt);
+				fval = validarFecha(cal);
+				if (!fval) {
+					System.out.println("no se puede hacer la reserva intente de nuevo");
 				}
+
 			}
 			auxr.setFecha(cal);
 			auxr.setTourReservado(auxt);
@@ -152,11 +154,23 @@ public class ControlAgencia {
 
 	public boolean validarFecha(Calendar fecha, Cliente cli, Tour tou) {
 		for (Reserva reserva : reservas) {
-			if (cli == reserva.getCliente() && fecha == reserva.getFecha() && tou == reserva.getTourReservado()) {
+			if (cli == reserva.getCliente() && fecha.compareTo(reserva.getFecha()) == 0
+					&& tou == reserva.getTourReservado()) {
 				return false;
 			}
 		}
 		return true;
+	}
+
+	public boolean validarFecha(Calendar fecha) {
+		Calendar fechaA = Calendar.getInstance();
+		long mils = fechaA.getTimeInMillis() - fecha.getTimeInMillis();
+		long dias = mils / 1000 / 60 / 60 / 24;
+		if (dias > 2) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
