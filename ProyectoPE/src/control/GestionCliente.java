@@ -13,16 +13,13 @@ import entity.Tour;
 public class GestionCliente {
 
 	public void eliminarCliente(long cIdentificacion,ArrayList<Cliente>listaClientes,ArrayList<Reserva>reservas){
-		boolean b= true;
-		boolean v= false;
-		int contt=0, cont = 0;
+		boolean b= false;
+		int  cont = 0;
 		for (Cliente cliente : listaClientes){
 			if (cIdentificacion==cliente.getNumeroIdentificacion()) {
-				v=true;
+				b=true;	
 				for (Reserva reserva : reservas ) {
-					//contt=cont;
 					if(cIdentificacion!=reserva.getCliente().getNumeroIdentificacion()) {
-						b=false;	
 						listaClientes.remove(cont);
 						System.out.println("la eliminacion ha sido correcta");
 					}
@@ -32,15 +29,10 @@ public class GestionCliente {
 				}
 				cont++;
 			}
+			if(b==false) {
 			System.out.println("No existe algun cliente con ese numero de identificacion");
 		}
-		if(b) {
-			listaClientes.remove(contt);
-			System.out.println("la eliminacion ha sido correcta");
-		}
-		else {
-			System.out.println("El cliente esta asociado a una reserva");
-		}
+		
 	}
 
 	public void ModificarCliente(long ID, ArrayList<Cliente> listaClientes) {
