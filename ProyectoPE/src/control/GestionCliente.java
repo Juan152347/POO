@@ -31,8 +31,8 @@ public class GestionCliente {
 			}
 			if(b==false) {
 			System.out.println("No existe algun cliente con ese numero de identificacion");
+			}
 		}
-		
 	}
 
 	public void ModificarCliente(long ID, ArrayList<Cliente> listaClientes) {
