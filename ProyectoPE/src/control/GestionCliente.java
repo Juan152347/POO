@@ -32,14 +32,16 @@ public class GestionCliente {
 
 		Scanner x = new Scanner(System.in);
 		int op=0;
+		Cliente aux=new Cliente();
+		aux=buscarcliente(ID,listaClientes);
 		do {
 
 			if (VerificarExistencia(ID, listaClientes)) {
 
 				System.out.println("Marque el numero de la opcion que desea modificarr:");
-				System.out.println("1.Nombre");
-				System.out.println("2.ID");
-				System.out.println("3.Telefono");
+				System.out.println("1.Nombre:"+" "+aux.getNombreCompleto());
+				System.out.println("2.ID:"+" "+aux.getNumeroIdentificacion());
+				System.out.println("3.Telefono:"+" "+aux.getTelefonoContacto());
 				System.out.println("4.salir");
 
 				System.out.println("Ingrese que opcion desa modificar: ");
@@ -105,7 +107,22 @@ public class GestionCliente {
 		}
     }
 	public void insertarCliente() {
-		System.out.println("hola que hace");
+		
 
+	}
+	public Cliente buscarcliente(long ID,ArrayList<Cliente> listaCliente) {
+		for (Cliente cliente : listaCliente) {
+			if(ID == cliente.getNumeroIdentificacion()) {
+				return cliente;
+			}
+		}
+		return null;
+	}
+	public boolean validarcliente(ArrayList<Cliente> listaCliente) {
+		for (Cliente cliente : listaCliente) {
+			if() {
+				
+			}
+		}
 	}
 }

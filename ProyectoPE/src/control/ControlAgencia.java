@@ -90,6 +90,7 @@ public class ControlAgencia {
 			System.out.println(reserva.getCliente().getNumeroIdentificacion()+" "+reserva.getCliente().getNombreCompleto()+" "+reserva.getCantidadPersonas()+" "+reserva.getCliente().getTelefonoContacto());
 		}
 	}
+   
 	
 
 }
