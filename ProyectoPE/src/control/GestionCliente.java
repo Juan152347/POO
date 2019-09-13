@@ -12,6 +12,8 @@ import entity.Tour;
 
 public class GestionCliente {
 
+////////////////////////////////////// ELIMINAR CLIENTE /////////////////////////////////////////////////
+
 	public void eliminarCliente(long cIdentificacion, ArrayList<Cliente> listaClientes, ArrayList<Reserva> reservas) {
 		Cliente aux = buscarCliente(cIdentificacion, listaClientes);
 		boolean eliminable = true;
@@ -34,6 +36,8 @@ public class GestionCliente {
 			System.out.println("el cliente no existe");
 		}
 	}
+
+//////////////////////////////// MODIFICAR CLIENTE ////////////////////////////////////////////////
 
 	public void ModificarCliente(long ID, ArrayList<Cliente> listaClientes) {
 
@@ -80,6 +84,8 @@ public class GestionCliente {
 
 	}
 
+//////////////////////////////// VERIFICAR EXISTENCIA ///////////////////////////////////////////
+
 	public boolean VerificarExistencia(long ID, ArrayList<Cliente> listaClientes) {
 		for (Cliente click : listaClientes) {
 			if (ID == click.getNumeroIdentificacion()) {
@@ -90,6 +96,8 @@ public class GestionCliente {
 		return false;
 	}
 
+///////////////////////////////// MOD NOMBRE CLIENTE /////////////////////////////////////////////////////7/
+
 	public void mod(long ID, String nombre, ArrayList<Cliente> listaCliente) {
 		for (Cliente cliente : listaCliente) {
 			if (cliente.getNumeroIdentificacion() == ID) {
@@ -97,6 +105,8 @@ public class GestionCliente {
 			}
 		}
 	}
+
+/////////////////////////////////// MOD ID CLIENTE //////////////////////////////////////////////////
 
 	public void mod(long ID, ArrayList<Cliente> listaCliente, long IDn) {
 		boolean idesta = false;
@@ -113,6 +123,8 @@ public class GestionCliente {
 		}
 	}
 
+/////////////////////////////// MOD TELEFONO CLIENTE ////////////////////////////////////////////
+
 	public void mod(String telefono, long ID, ArrayList<Cliente> listaCliente) {
 		for (Cliente cliente : listaCliente) {
 			if (cliente.getNumeroIdentificacion() == ID) {
@@ -120,6 +132,8 @@ public class GestionCliente {
 			}
 		}
 	}
+
+//////////////////////////////// INSERTAR CLIENTE ///////////////////////////////////////////////
 
 	public void insertarCliente(long ID, String nombre, String telefono, ArrayList<Cliente> listaCliente) {
 		Cliente ncliente = new Cliente(ID, nombre, telefono);
@@ -129,6 +143,8 @@ public class GestionCliente {
 
 	}
 
+/////   /////   /////   /////     /////   /////   /////     /////   /////   /////     /////   /////   /////
+
 	public Cliente buscarCliente(long ID, ArrayList<Cliente> listaClientes) {
 		for (Cliente cliente : listaClientes) {
 			if (ID == cliente.getNumeroIdentificacion()) {
@@ -137,6 +153,8 @@ public class GestionCliente {
 		}
 		return null;
 	}
+
+/////   /////   /////   /////     /////   /////   /////     /////   /////   /////     /////   /////   /////
 
 	public boolean buscarCliente(ArrayList<Cliente> listaCliente, long ID) {
 		for (Cliente cliente : listaCliente) {
