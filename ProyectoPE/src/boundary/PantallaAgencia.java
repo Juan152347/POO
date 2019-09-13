@@ -16,6 +16,7 @@ public class PantallaAgencia {
 	}
 	
 	public static void main(String[] args) {
+		
 		//para revisar eliminar cliente
 		/*GestionCliente g = new GestionCliente();
 		ControlAgencia c= new ControlAgencia();
@@ -23,5 +24,6 @@ public class PantallaAgencia {
 		c.setGestionCliente(g);
 		c1=new
 		*/
+		
 	}	
 }

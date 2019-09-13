@@ -10,6 +10,15 @@ public class Reserva {
 	private boolean pagado;
 	private int cantidadPersonas;
 	private Cliente cliente;
+    private Tour tourReservado;
+    
+	public Tour getTourReservado() {
+		return tourReservado;
+	}
+
+	public void setTourReservado(Tour tourReservado) {
+		this.tourReservado = tourReservado;
+	}
 
 	public long getNumeroReserva() {
 		return numeroReserva;
@@ -51,12 +60,16 @@ public class Reserva {
 		this.cliente = cliente;
 	}
 
-	public Reserva(long numeroReserva, Calendar fecha, boolean pagado, int cantidadPersonas, Cliente cliente) {
+	
+
+	public Reserva(long numeroReserva, Calendar fecha, boolean pagado, int cantidadPersonas, Cliente cliente,
+			Tour tourReservado) {
 		this.numeroReserva = numeroReserva;
 		this.fecha = fecha;
 		this.pagado = pagado;
 		this.cantidadPersonas = cantidadPersonas;
 		this.cliente = cliente;
+		this.tourReservado = tourReservado;
 	}
 
 	public Reserva() {

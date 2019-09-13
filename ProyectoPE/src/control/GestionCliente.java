@@ -108,7 +108,7 @@ public class GestionCliente {
 		for (Cliente cliente : listaCliente) {
 			if (cliente.getNumeroIdentificacion() == ID && idesta == false) {
 				cliente.setNumeroIdentificacion(IDn);
-				
+
 			}
 		}
 	}
@@ -121,12 +121,12 @@ public class GestionCliente {
 		}
 	}
 
-	public void insertarCliente(long ID,String nombre,String telefono,ArrayList<Cliente> listaCliente) {
-		Cliente ncliente=new Cliente(ID,nombre,telefono);
-		if (!buscarCliente(listaCliente,ID)) {
+	public void insertarCliente(long ID, String nombre, String telefono, ArrayList<Cliente> listaCliente) {
+		Cliente ncliente = new Cliente(ID, nombre, telefono);
+		if (!buscarCliente(listaCliente, ID)) {
 			listaCliente.add(ncliente);
 		}
-		
+
 	}
 
 	public Cliente buscarCliente(long ID, ArrayList<Cliente> listaClientes) {
@@ -137,9 +137,10 @@ public class GestionCliente {
 		}
 		return null;
 	}
-	public boolean buscarCliente(ArrayList<Cliente> listaCliente,long ID) {
+
+	public boolean buscarCliente(ArrayList<Cliente> listaCliente, long ID) {
 		for (Cliente cliente : listaCliente) {
-			if(ID==cliente.getNumeroIdentificacion()) {
+			if (ID == cliente.getNumeroIdentificacion()) {
 				return true;
 			}
 		}

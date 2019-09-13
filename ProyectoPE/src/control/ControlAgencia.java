@@ -1,6 +1,8 @@
 package control;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Scanner;
 
 import entity.Tour;
 import entity.Reserva;
@@ -29,8 +31,6 @@ public class ControlAgencia {
 	public void setGestiontours(GestionTours gestiontours) {
 		this.gestiontours = gestiontours;
 	}
-
-	
 
 	public GestionCliente getGestionCliente() {
 		return gestionCliente;
@@ -70,7 +70,6 @@ public class ControlAgencia {
 		}
 	}
 
-
 	public boolean validarTour(long codigo) {
 		if (codigo > 1000000 && codigo < 10000000) {
 			for (Tour tour : this.listaTours) {
@@ -85,12 +84,63 @@ public class ControlAgencia {
 		}
 
 	}
+
 	public void verlistaclientes() {
 		for (Reserva reserva : this.reservas) {
-			System.out.println(reserva.getCliente().getNumeroIdentificacion()+" "+reserva.getCliente().getNombreCompleto()+" "+reserva.getCantidadPersonas()+" "+reserva.getCliente().getTelefonoContacto());
+			System.out.println(
+					reserva.getCliente().getNumeroIdentificacion() + " " + reserva.getCliente().getNombreCompleto()
+							+ " " + reserva.getCantidadPersonas() + " " + reserva.getCliente().getTelefonoContacto());
 		}
 	}
-   
-	
+
+	public void reservarTour() {
+		Scanner sc = new Scanner(System.in);
+		boolean estat = false, estac = false;
+		Tour auxt = new Tour();
+		Cliente auxc = new Cliente();
+		System.out.println("digite codigo de identificacion del tour");
+		long codt = sc.nextLong();
+		for (Tour tour : listaTours) {
+			if (tour.getCodigoIdentidad() == codt) {
+				estat = true;
+				auxt = tour;
+			}
+		}
+		System.out.println("digite el numero de identificacion del cliente");
+		long codc = sc.nextLong();
+		for (Cliente cliente : listaClientes) {
+			if (cliente.getNumeroIdentificacion() == codc) {
+				estac = true;
+				auxc = cliente;
+			}
+		}
+		if (estat && estac) {
+			Reserva auxr = new Reserva();
+			auxr.setNumeroReserva(numerodereserva());
+			Calendar cal = Calendar.getInstance();
+			System.out.println("digite la fecha de la reserva");
+			System.out.println("año:");
+			int año = sc.nextInt();
+			System.out.println("mes:");
+			int mes = sc.nextInt();
+			System.out.println("dia:");
+			int dia = sc.nextInt();
+			cal.set(año, mes, dia);
+			auxr.setFecha(cal);
+			auxr.setTourReservado(auxt);
+			auxr.setCliente(auxc);
+		}
+
+	}
+
+	public long numerodereserva() {
+		long i = Math.round((Math.random() * (9999 - 1000 + 1) + 1000));
+		for (Reserva Reserva : reservas) {
+			if (i == Reserva.getNumeroReserva()) {
+				return numerodereserva();
+			}
+		}
+		return i;
+	}
 
 }
