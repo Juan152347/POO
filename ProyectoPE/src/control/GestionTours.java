@@ -57,7 +57,7 @@ public class GestionTours {
 			
 			
 			else {
-				System.out.println("El cliente solicitado no exist");
+				System.out.println("El cliente solicitado no existe");
 			}
 		} while (p != 6);
 	}
