@@ -3,6 +3,7 @@ package control;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import entity.Cliente;
 import entity.Tour;
 import entity.Tour;
 
@@ -41,35 +42,41 @@ public class GestionTours {
 				p = x.nextInt();
 				switch (p) {
 
-				case 1: 
-					
-					
+				case 1:
+
+					System.out.println("Ingrese su nuevo codigo de identificación: ");
+					mod(codigo, listaTours, x.nextLong());
 					break;
+
+				case 2:
+					System.out.println("Ingrese su nuevo nombre comercial: ");
+					mod(codigo, x.next(), listaTours);
+					break;
+					
+				case 3: 
+					System.out.println("ingrese su nuevo lugar de partida: ");
+					mod(x.next(), codigo, listaTours);
 				
-				
+				case 4:
+					System.out.println("Ingrese nu nueva hora de partida:");
+					mod(listaTours, x.next(), codigo);
+					break;
+					
+				case 5:
+					System.out.println("Ingrese su nuevo precio: ");
+					mod(listaTours, x.nextDouble(), codigo);
+					break;
+					
 				}
-				
-				
-			} 
-			
-			
-			
-			
-			
+
+			}
+
 			else {
-				System.out.println("El cliente solicitado no existe");
+				System.out.println("El Tour solicitado no existe");
 			}
 		} while (p != 6);
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
 ////////////////////////////////////  VERIFICAR EXISTENCIA /////////////////////////////////////////	
 	public boolean VerificarExistencia(long codigo, ArrayList<Tour> listaTours) {
 		for (Tour tour : listaTours) {
@@ -80,30 +87,58 @@ public class GestionTours {
 		}
 		return false;
 	}
-///////////////////////////////MODIFICAR//////////////////////////////////////////////////////////	
-	  public void mod (long cod,String nombre,ArrayList<Tour> listaTours) {
-	    	for (Tour tour : listaTours) {
-				if(tour.getCodigoIdentidad()==cod) {
-					tour.setNombreComercial(nombre);
-				}
+///////////////////////////////// MOD CODIGO /////////////////////////////////////////////////////	
+
+	public void mod(long cod, ArrayList<Tour> listaTours, long codn) {
+		boolean codesta = false;
+		for (Tour tour : listaTours) {
+			if (codn == tour.getCodigoIdentidad()) {
+				codesta = true;
 			}
-	    }
-///////////////////////////////////////////////////////////////////////////////////////////////////	  
-	  public void mod(String lugar,long cod,ArrayList<Tour> listaTours) {
-	    	for (Tour tour : listaTours) {
-				if(tour.getCodigoIdentidad()==cod) {
-					tour.setLugarPartida(lugar);
-				}
+		}
+		for (Tour tour : listaTours) {
+			if (tour.getCodigoIdentidad() == cod && codesta == false) {
+				tour.setCodigoIdentidad(codn);
+
 			}
-	    }
-//////////////////////////////////////////////////////////////////////////////////////////////////7
-	  public void mod(ArrayList<Tour> listaTours,String hora,long cod) {
-	    	for (Tour tour : listaTours) {
-				if(tour.getCodigoIdentidad()==cod) {
-					tour.setHoraPartida(hora);;
-				}
+		}
+	}
+
+///////////////////////////////MOD NOMBRE //////////////////////////////////////////////////////////	
+	public void mod(long cod, String nombre, ArrayList<Tour> listaTours) {
+		for (Tour tour : listaTours) {
+			if (tour.getCodigoIdentidad() == cod) {
+				tour.setNombreComercial(nombre);
 			}
-	    }
-//////////////////////////////////////////////////////////////////////////////////////////////////
+		}
+	}
+
+///////////////////////////////////////MOD LUGAR ////////////////////////////////////////////////////////////	  
+	public void mod(String lugar, long cod, ArrayList<Tour> listaTours) {
+		for (Tour tour : listaTours) {
+			if (tour.getCodigoIdentidad() == cod) {
+				tour.setLugarPartida(lugar);
+			}
+		}
+	}
+
+////////////////////////////////////////MOD HORA //////////////////////////////////////////////////////////7
+	public void mod(ArrayList<Tour> listaTours, String hora, long cod) {
+		for (Tour tour : listaTours) {
+			if (tour.getCodigoIdentidad() == cod) {
+				tour.setHoraPartida(hora);
+				;
+			}
+		}
+	}
+
+/////////////////////////////////////////MOD PRECIO/////////////////////////////////////////////////////////
+	public void mod(ArrayList<Tour> listaTours, double precio, long cod) {
+		for (Tour tour : listaTours) {
+			if (tour.getCodigoIdentidad() == cod) {
+				tour.setPrecio(precio);
+			}
+		}
+	}
 
 }
