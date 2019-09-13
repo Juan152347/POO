@@ -121,9 +121,12 @@ public class GestionCliente {
 		}
 	}
 
-	public void insertarCliente() {
-		System.out.println("hola que hace");
-
+	public void insertarCliente(long ID,String nombre,String telefono,ArrayList<Cliente> listaCliente) {
+		Cliente ncliente=new Cliente(ID,nombre,telefono);
+		if (!buscarCliente(listaCliente,ID)) {
+			listaCliente.add(ncliente);
+		}
+		
 	}
 
 	public Cliente buscarCliente(long ID, ArrayList<Cliente> listaClientes) {
@@ -133,5 +136,13 @@ public class GestionCliente {
 			}
 		}
 		return null;
+	}
+	public boolean buscarCliente(ArrayList<Cliente> listaCliente,long ID) {
+		for (Cliente cliente : listaCliente) {
+			if(ID==cliente.getNumeroIdentificacion()) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
