@@ -108,7 +108,7 @@ public class GestionCliente {
 		for (Cliente cliente : listaCliente) {
 			if (cliente.getNumeroIdentificacion() == ID && idesta == false) {
 				cliente.setNumeroIdentificacion(IDn);
-				;
+				
 			}
 		}
 	}
