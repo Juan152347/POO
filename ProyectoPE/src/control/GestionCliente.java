@@ -118,11 +118,11 @@ public class GestionCliente {
 		}
 		return null;
 	}
-	public boolean validarcliente(ArrayList<Cliente> listaCliente) {
+	/*public boolean validarcliente(ArrayList<Cliente> listaCliente) {
 		for (Cliente cliente : listaCliente) {
 			if() {
 				
 			}
 		}
-	}
+	}*/
 }
