@@ -63,7 +63,7 @@ public class ControlAgencia {
 	public void setlClientes(ArrayList<Cliente> lClientes) {
 		this.listaClientes = lClientes;
 	}
-
+////////////////////////////// VER LISTA DE TOURS ////////////////////////////////////////////////
 	public void verlistatours() {
 		for (Tour tour : this.listaTours) {
 			System.out.println(tour.getCodigoIdentidad() + " " + tour.getNombreComercial() + " " + tour.getPrecio());
@@ -84,7 +84,8 @@ public class ControlAgencia {
 		}
 
 	}
-
+/////////////////////// VER LISTA CLIENTES REGISTRADOS ////////////////////////////////////////////
+	
 	public void verlistaclientes() {
 		for (Reserva reserva : this.reservas) {
 			System.out.println(
@@ -93,6 +94,7 @@ public class ControlAgencia {
 		}
 	}
 
+	
 	public void reservarTour() {
 		Scanner sc = new Scanner(System.in);
 		boolean estat = false, estac = false;
@@ -187,7 +189,7 @@ public class ControlAgencia {
 					System.out.println("La eliminacion de la reserva ha sido correcta");
 				}
 				
-			}
+			} 
 		}
 		if (existe == false) {
 			System.out.println("No existe ese numero de reserva");
