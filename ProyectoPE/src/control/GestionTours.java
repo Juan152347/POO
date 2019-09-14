@@ -32,7 +32,7 @@ public class GestionTours {
 			if (tour.getCodigoIdentidad() == codigo) {
 				for (Reserva reserva : listaReserva) {
 					if (reserva.getTourReservado().getCodigoIdentidad() != codigo) {
-						listaTours.remove(reserva);
+						listaTours.remove(listaTours.indexOf(tour));
 					}
 					else {System.out.println("El cliete presenta una reserva");}
 				}
