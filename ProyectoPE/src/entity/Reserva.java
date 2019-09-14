@@ -15,7 +15,16 @@ public class Reserva {
 	private Cliente cliente;
     private Tour tourReservado;
     private ArrayList<ServicioAdicional> serviciosAdicionales;
+    private double precio;
     
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
 	public ArrayList<ServicioAdicional> getServiciosAdicionales() {
 		return serviciosAdicionales;
 	}

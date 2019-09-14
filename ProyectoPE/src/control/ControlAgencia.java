@@ -19,7 +19,7 @@ public class ControlAgencia {
 	private ArrayList<Tour> listaTours;
 	private ArrayList<Reserva> reservas;
 	private ArrayList<Cliente> listaClientes;
-	private ArrayList<ServicioAdicional> sageneral; 
+	private ArrayList<ServicioAdicional> sageneral;
 
 	public ControlAgencia() {
 		this.listaTours = new ArrayList<>();
@@ -136,22 +136,33 @@ public class ControlAgencia {
 				if (!fval) {
 					System.out.println("no se puede hacer la reserva intente de nuevo");
 				}
-				
 
 			}
 			System.out.println("desea servicios adicionales S/N");
 			char op = sc.next().charAt(0);
 			if (op == 's' || op == 'S') {
-               for(ServicioAdicional sa  : sageneral) {
-            	   System.out.println("codigo del servicio:");
-            	   System.out.println(sa.getServicio());
-            	   System.out.println("Nombre del servicio:");
-            	   System.out.println(sa.getNombreServicio());
-            	   System.out.println("Precio:");
-            	   System.out.println(sa.getPrecio());
-            	   
-            	   
-               }
+				for (ServicioAdicional sa : sageneral) {
+					System.out.println("codigo del servicio:");
+					System.out.println(sa.getServicio());
+					System.out.println("Nombre del servicio:");
+					System.out.println(sa.getNombreServicio());
+					System.out.println("Precio:");
+					System.out.println(sa.getPrecio());
+
+				}
+				char op2 = 's';
+
+				do {
+					System.out.println("digite el codigo de servicio:");
+					long ca = sc.nextLong();
+					for (ServicioAdicional sa : sageneral) {
+						if (sa.getServicio() == ca) {
+                           auxr.getServiciosAdicionales().add(sa);
+						}
+					}
+					System.out.println("quiere agregar otro servicio S/N");
+					op2=sc.next().charAt(0);
+				} while (op2 != 'n' || op2 != 'N');
 			}
 			auxr.setFecha(cal);
 			auxr.setTourReservado(auxt);
@@ -190,5 +201,5 @@ public class ControlAgencia {
 			return false;
 		}
 	}
-	
+
 }
