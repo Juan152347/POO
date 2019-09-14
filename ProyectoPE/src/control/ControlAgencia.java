@@ -138,6 +138,8 @@ public class ControlAgencia {
 				}
 
 			}
+			System.out.println("¿cuantas personas?");
+			auxr.setCantidadPersonas(sc.nextInt());
 			System.out.println("desea servicios adicionales S/N");
 			char op = sc.next().charAt(0);
 			if (op == 's' || op == 'S') {
@@ -167,10 +169,18 @@ public class ControlAgencia {
 			auxr.setFecha(cal);
 			auxr.setTourReservado(auxt);
 			auxr.setCliente(auxc);
+			System.out.println("datos de reserva");
+			System.out.println("numero de reserva:"+auxr.getNumeroReserva());
+			System.out.println("fecha:"+auxr.getFecha().getTime());
+			System.out.println("tour:"+auxr.getTourReservado().getNombreComercial());
 		}
 
 	}
-
+    public double calcularprecioreserva(int cantidad, Tour tour) {
+    	double can=tour.getPrecio()*0.25;
+    	double ptotal=tour.getPrecio()+(can*cantidad);
+    	return ptotal;
+    }
 	public long numerodereserva() {
 		long i = Math.round((Math.random() * (9999 - 1000 + 1) + 1000));
 		for (Reserva Reserva : reservas) {
