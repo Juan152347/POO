@@ -33,7 +33,7 @@ public class GestionCliente {
 				}
 			}
 		} 
-		else {
+	else {
 			System.out.println("el cliente no existe");
 		}
 	}
