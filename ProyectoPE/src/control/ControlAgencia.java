@@ -172,5 +172,26 @@ public class ControlAgencia {
 			return false;
 		}
 	}
+///////////////////////////////eliminar reserva (pediente a revision)//////////////////////////////////////////////////
+	public void eliminarReserva (long creserva) {
+		char confirmacion ;
+		boolean existe= false;
+		Scanner esc= new Scanner(System.in);
+		for (Reserva reserva : reservas) {
+			if( creserva==reserva.getNumeroReserva()) {
+				System.out.println("Desea eliminar esta reserva?");
+				confirmacion= esc.next().charAt(0);
+				if (confirmacion=='s') {
+					reservas.remove(reservas.indexOf(reserva));
+					existe= true;
+					System.out.println("La eliminacion de la reserva ha sido correcta");
+				}
+				
+			}
+		}
+		if (existe == false) {
+			System.out.println("No existe ese numero de reserva");
+		}
+	}
 
 }
