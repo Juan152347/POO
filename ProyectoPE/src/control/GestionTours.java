@@ -155,7 +155,7 @@ public class GestionTours {
 		for (Tour tour : listaTours) {
 			if (tour.getCodigoIdentidad() == cod) {
 				tour.setHoraPartida(hora);
-				;
+				
 			}
 		}
 	}

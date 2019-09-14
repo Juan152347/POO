@@ -188,7 +188,6 @@ public class ControlAgencia {
 					existe= true;
 					System.out.println("La eliminacion de la reserva ha sido correcta");
 				}
-				
 			} 
 		}
 		if (existe == false) {
