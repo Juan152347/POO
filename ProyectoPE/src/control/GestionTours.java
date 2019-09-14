@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import entity.Cliente;
+import entity.Reserva;
 import entity.Tour;
 import entity.Tour;
 
@@ -12,7 +13,7 @@ public class GestionTours {
 	public GestionTours() {
 	}
 //////////////////////////////////////// INSERTAR TOUR //////////////////////////////////////////////////
-	
+
 	public void insertarTour(long codigo, String nombre, String lugarp, String hora, double precio,
 			ArrayList<Tour> ListaTours) {
 		ControlAgencia ca = new ControlAgencia();
@@ -21,7 +22,32 @@ public class GestionTours {
 			ListaTours.add(ntour);
 		}
 	}
+
+////////////////////////////////////////// ELIMINAR TOUR ////////////////////////////////////////////////////////
+
+	public void EliminarTour(long codigo, ArrayList<Tour> listaTours, ArrayList<Reserva> listaReserva) {
+
+		for (Tour tour : listaTours) {
+
+			if (tour.getCodigoIdentidad() == codigo) {
+				for (Reserva reserva : listaReserva) {
+					if (reserva.getTourReservado().getCodigoIdentidad() != codigo) {
+						listaTours.remove(reserva);
+					}
+					else {System.out.println("El cliete presenta una reserva");}
+				}
+
+			} else {
+
+				System.out.println("El tour solicitado no existe");
+			}
+
+		}
+	}
+
 //////////////////////////////////////// MODIFICAR TOUR //////////////////////////////////////////////////////////
+
+	
 
 	public void ModificarTour(long codigo, ArrayList<Tour> listaTours) {
 
@@ -54,21 +80,21 @@ public class GestionTours {
 					System.out.println("Ingrese su nuevo nombre comercial: ");
 					mod(codigo, x.next(), listaTours);
 					break;
-					
-				case 3: 
+
+				case 3:
 					System.out.println("ingrese su nuevo lugar de partida: ");
 					mod(x.next(), codigo, listaTours);
-				
+
 				case 4:
 					System.out.println("Ingrese nu nueva hora de partida:");
 					mod(listaTours, x.next(), codigo);
 					break;
-					
+
 				case 5:
 					System.out.println("Ingrese su nuevo precio: ");
 					mod(listaTours, x.nextDouble(), codigo);
 					break;
-					
+
 				}
 
 			}

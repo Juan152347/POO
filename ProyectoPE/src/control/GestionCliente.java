@@ -159,6 +159,7 @@ public class GestionCliente {
 	public boolean buscarCliente(ArrayList<Cliente> listaCliente, long ID) {
 		for (Cliente cliente : listaCliente) {
 			if (ID == cliente.getNumeroIdentificacion()) {
+				
 				return true;
 			}
 		}
