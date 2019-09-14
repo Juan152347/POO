@@ -1,10 +1,12 @@
 package control;
 
 import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.Scanner;
 
 import entity.Tour;
+import servicioAdicional.ServicioAdicional;
 import entity.Reserva;
 import entity.Cliente;
 
@@ -17,6 +19,7 @@ public class ControlAgencia {
 	private ArrayList<Tour> listaTours;
 	private ArrayList<Reserva> reservas;
 	private ArrayList<Cliente> listaClientes;
+	private ArrayList<ServicioAdicional> sageneral; 
 
 	public ControlAgencia() {
 		this.listaTours = new ArrayList<>();
@@ -63,7 +66,7 @@ public class ControlAgencia {
 	public void setlClientes(ArrayList<Cliente> lClientes) {
 		this.listaClientes = lClientes;
 	}
-////////////////////////////// VER LISTA DE TOURS ////////////////////////////////////////////////
+
 	public void verlistatours() {
 		for (Tour tour : this.listaTours) {
 			System.out.println(tour.getCodigoIdentidad() + " " + tour.getNombreComercial() + " " + tour.getPrecio());
@@ -84,8 +87,7 @@ public class ControlAgencia {
 		}
 
 	}
-/////////////////////// VER LISTA CLIENTES REGISTRADOS ////////////////////////////////////////////
-	
+
 	public void verlistaclientes() {
 		for (Reserva reserva : this.reservas) {
 			System.out.println(
@@ -94,7 +96,6 @@ public class ControlAgencia {
 		}
 	}
 
-	
 	public void reservarTour() {
 		Scanner sc = new Scanner(System.in);
 		boolean estat = false, estac = false;
@@ -135,7 +136,21 @@ public class ControlAgencia {
 				if (!fval) {
 					System.out.println("no se puede hacer la reserva intente de nuevo");
 				}
+				
 
+			}
+			System.out.println("desea servicios adicionales S/N");
+			char op = sc.next().charAt(0);
+			if (op == 's' || op == 'S') {
+               for(ServicioAdicional sa  : auxr.getServiciosAdicionales()) {
+            	   System.out.println("codigo del servicio:");
+            	   System.out.println(sa.getServicio());
+            	   System.out.println("Nombre del servicio:");
+            	   System.out.println(sa.getNombreServicio());
+            	   System.out.println("Precio:");
+            	   System.out.println(sa.getPrecio());
+            	   
+               }
 			}
 			auxr.setFecha(cal);
 			auxr.setTourReservado(auxt);
@@ -174,5 +189,5 @@ public class ControlAgencia {
 			return false;
 		}
 	}
-
+	
 }

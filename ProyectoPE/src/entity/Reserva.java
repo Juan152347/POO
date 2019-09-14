@@ -1,7 +1,10 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import servicioAdicional.ServicioAdicional;
 
 public class Reserva {
 
@@ -11,7 +14,16 @@ public class Reserva {
 	private int cantidadPersonas;
 	private Cliente cliente;
     private Tour tourReservado;
+    private ArrayList<ServicioAdicional> serviciosAdicionales;
     
+	public ArrayList<ServicioAdicional> getServiciosAdicionales() {
+		return serviciosAdicionales;
+	}
+
+	public void setServiciosAdicionales(ArrayList<ServicioAdicional> serviciosAdicionales) {
+		this.serviciosAdicionales = serviciosAdicionales;
+	}
+
 	public Tour getTourReservado() {
 		return tourReservado;
 	}
@@ -70,9 +82,11 @@ public class Reserva {
 		this.cantidadPersonas = cantidadPersonas;
 		this.cliente = cliente;
 		this.tourReservado = tourReservado;
+		this.serviciosAdicionales=new ArrayList<>();
 	}
 
 	public Reserva() {
+		this.serviciosAdicionales= new ArrayList<>();
 	}
 
 }
