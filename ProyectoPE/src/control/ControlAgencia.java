@@ -98,6 +98,7 @@ public class ControlAgencia {
 		}
 	}
 
+//////////////////////////////////////// RESERVAR TOUR ////////////////////////////////////////////////////
 	public void reservarTour() {
 		Scanner sc = new Scanner(System.in);
 		boolean estat = false, estac = false;
@@ -251,7 +252,8 @@ public class ControlAgencia {
 		return true;
 	}
 
-///////////////////////////////modificar reserva/////////////////////////////////////////////////////////////////////////
+///////////////////////////////      MODIFICAR RESERVA /////////////////////////////////////////////////////////////////////////
+
 	public void modificarreserva(long nreserva) {
 		boolean esta = false;
 		Reserva aux = new Reserva();
@@ -351,33 +353,27 @@ public class ControlAgencia {
 					break;
 				}
 			} while (op != 4);
-		}else {
+		} else {
 			System.out.println("la reserva no existe");
 		}
 	}
 
-///////////////////////////////eliminar reserva (pediente a revision)//////////////////////////////////////////////////
-	public void eliminarReserva(long creserva) {
-		char confirmacion;
-		boolean existe = false;
-		Scanner esc = new Scanner(System.in);
-		for (Reserva reserva : reservas) {
-			if (creserva == reserva.getNumeroReserva()) {
-				System.out.println("Desea eliminar esta reserva?");
-				confirmacion = esc.next().charAt(0);
-				if (confirmacion == 's') {
-					reservas.remove(reservas.indexOf(reserva));
-					existe = true;
-					System.out.println("La eliminacion de la reserva ha sido correcta");
-				}
+/////////////////////////////// ELIMINAR RESERVAR (PENDIENTE ) //////////////////////////////////////////////////
+	public void eliminarReserva(long reserva) {
+
+		for (Reserva reserva1 : reservas) {
+			if (reserva == reserva1.getNumeroReserva()) {
+				reservas.remove(reservas.indexOf(reserva1));
+				System.out.println("La eliminacion de la reserva ha sido correcta");
+			} else {
+				System.out.println("No existe ese numero de reserva");
 			}
 		}
-		if (existe == false) {
-			System.out.println("No existe ese numero de reserva");
-		}
+
 	}
 
-//////////////////////////////////ver listado de reservas existentes///////////////////////////////////////
+////////////////////////////////// VER LISTADO RESERVAS ///////////////////////////////////////
+
 	public void verListadoReservas() {
 		for (Reserva reserva : reservas) {
 			System.out.println("numero de reserva " + reserva.getNumeroReserva() + "fecha de reserva  "
@@ -386,6 +382,7 @@ public class ControlAgencia {
 		}
 	}
 
+//////////////////////////////////// VER LISTADO FECHA ESPECIFICAR ////////////////////////////////
 	public void verListadorReservaEsp(long codTour, Calendar fecha) {
 		int cont = 0;
 		for (Reserva reserva : reservas) {
