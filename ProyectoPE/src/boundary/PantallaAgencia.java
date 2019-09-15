@@ -49,6 +49,7 @@ public class PantallaAgencia {
 		int op;
 		Scanner sc = new Scanner(System.in);
 		do {
+
 			System.out.println("====================================");
 			System.out.println("seleccione una opcion");
 			System.out.println("1.ver listados de tours disponibles");
@@ -67,6 +68,7 @@ public class PantallaAgencia {
 			switch (op) {
 			case 1:
 				a.verlistatours();
+				
 				break;
 			case 2:
 				break;
@@ -115,13 +117,27 @@ public class PantallaAgencia {
 			case 9:
 				a.reservarTour();
 				break;
+<<<<<<< HEAD
 
 
+=======
+			case 10:
+				System.out.println("digite el codigo de la reserva:");
+				long cod=sc.nextLong();
+				a.modificarreserva(cod);
+				
+				break;
+>>>>>>> branch 'master' of https://github.com/Juan152347/POO.git
 			default:
 				break;
 			}
 
 		} while (op != 14);
 
+	}
+	public static void limpiar() {
+		for (int i=0;i<200;i++) {
+			System.out.println();
+		}
 	}
 }

@@ -272,6 +272,7 @@ public class ControlAgencia {
 	public void modificarreserva(long nreserva) {
 		boolean esta = false;
 		Reserva aux = new Reserva();
+		Reserva aux2 =new Reserva();
 		for (Reserva reserva : reservas) {
 			if (nreserva == reserva.getNumeroReserva()) {
 				esta = true;
