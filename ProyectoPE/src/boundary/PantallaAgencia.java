@@ -49,9 +49,11 @@ public class PantallaAgencia {
 			System.out.println("1.ver listados de tours disponibles");
 			System.out.println("5.Ver lista de clientes");
 			System.out.println("8.eliminar cliente");
+
 			System.out.println("11. para eliminar reserva");
 			System.out.println("20. ver lista de reservas");
-			
+			System.out.println("9.reservar tour");
+
 			System.out.println("14.salir");
 		    op=sc.nextInt();
 			switch (op) {
@@ -71,12 +73,20 @@ public class PantallaAgencia {
 				a.verlistaclientes();
 				System.out.println();
 				break;
+
 			case 11: 
-				a.eliminarReserva(1999);
+				System.out.println("ingrese la reserva que desea eliminar: ");	
+				a.eliminarReserva(sc.nextLong());
 				break;
 			case 20: 
 				a.verListadoReservas();
 				break;
+
+			case 9:
+				a.reservarTour();
+				break;
+
+
 			default:
 				break;
 			}
