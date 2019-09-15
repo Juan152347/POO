@@ -351,6 +351,8 @@ public class ControlAgencia {
 					break;
 				}
 			} while (op != 4);
+		}else {
+			System.out.println("la reserva no existe");
 		}
 	}
 
