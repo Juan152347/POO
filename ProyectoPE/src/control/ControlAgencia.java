@@ -9,7 +9,7 @@ import entity.Tour;
 import servicioAdicional.ServicioAdicional;
 import entity.Reserva;
 import entity.Cliente;
-
+import entity.Reserva;
 public class ControlAgencia {
 
 	private GestionTours gestiontours;
@@ -366,16 +366,24 @@ public class ControlAgencia {
 /////////////////////////////// ELIMINAR RESERVAR //////////////////////////////////////////////////
 	public void eliminarReserva(long reserva) {
 
+		Reserva aux= new Reserva();
+		
 		for (Reserva reserva1 : reservas) {
 			if (reserva == reserva1.getNumeroReserva()) {
-				reservas.remove(reservas.indexOf(reserva1));
-				System.out.println("La eliminacion de la reserva ha sido correcta");
-			} else {
+				aux=reserva1;
+			}
+
+			else {
 				System.out.println("No existe ese numero de reserva");
 			}
+			
+		}
+			getListareservas().remove(aux);
+			System.out.println("La eliminacion de la reserva ha sido correcta");
+	
 		}
 
-	}
+	
 
 ////////////////////////////////// VER LISTADO RESERVAS ///////////////////////////////////////
 
