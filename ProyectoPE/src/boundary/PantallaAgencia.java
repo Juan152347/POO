@@ -39,7 +39,7 @@ public class PantallaAgencia {
 		Reserva x = new Reserva(1999, fecha  , false, 15, AA, A);
 		a.getListareservas().add(x);
 
-		ControlAgencia a = new ControlAgencia();
+		
 
 
 		Tour n = new Tour();
@@ -102,6 +102,15 @@ public class PantallaAgencia {
 				a.verlistaclientes();
 				System.out.println();
 				break;
+			case 9:
+				a.reservarTour();
+				break;
+			case 10:
+				System.out.println("digite el codigo de la reserva:");
+				long cod=sc.nextLong();
+				a.modificarreserva(cod);
+				
+				break;
 			case 11:
 				System.out.println("ingrese la reserva que desea modificar");
 				a.modificarreserva(sc.nextLong());
@@ -114,20 +123,6 @@ public class PantallaAgencia {
 				a.verListadoReservas();
 				break;
 
-			case 9:
-				a.reservarTour();
-				break;
-<<<<<<< HEAD
-
-
-=======
-			case 10:
-				System.out.println("digite el codigo de la reserva:");
-				long cod=sc.nextLong();
-				a.modificarreserva(cod);
-				
-				break;
->>>>>>> branch 'master' of https://github.com/Juan152347/POO.git
 			default:
 				break;
 			}

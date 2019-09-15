@@ -9,7 +9,7 @@ import entity.Tour;
 import servicioAdicional.ServicioAdicional;
 import entity.Reserva;
 import entity.Cliente;
-import entity.Reserva;
+
 public class ControlAgencia {
 
 	private GestionTours gestiontours;
@@ -335,7 +335,8 @@ public class ControlAgencia {
 							long cod = sc.nextLong();
 							for (ServicioAdicional sa3 : sageneral) {
 								if (sa3.getServicio() == cod) {
-									aux.getServiciosAdicionales().add(sa3);
+									//aux.getServiciosAdicionales().add(sa3);
+									
 								}
 							}
 							System.out.println("desea agregar otro servicio S/N");
@@ -377,31 +378,23 @@ public class ControlAgencia {
 /////////////////////////////// ELIMINAR RESERVAR //////////////////////////////////////////////////
 	public void eliminarReserva(long reserva) {
 
-		Reserva aux= new Reserva();
-		
 		for (Reserva reserva1 : reservas) {
 			if (reserva == reserva1.getNumeroReserva()) {
-				aux=reserva1;
-			}
-
-			else {
+				reservas.remove(reservas.indexOf(reserva1));
+				System.out.println("La eliminacion de la reserva ha sido correcta");
+			} else {
 				System.out.println("No existe ese numero de reserva");
 			}
-			
-		}
-			getListareservas().remove(aux);
-			System.out.println("La eliminacion de la reserva ha sido correcta");
-	
 		}
 
-	
+	}
 
 ////////////////////////////////// VER LISTADO RESERVAS ///////////////////////////////////////
 
 	public void verListadoReservas() {
 		for (Reserva reserva : reservas) {
-			System.out.println("Numero de Reserva: " + reserva.getNumeroReserva()+" --- " + "Fecha de Reserva: "
-					+ reserva.getFecha().getTime() +" --- "+ "Cantidad de Personas: " + reserva.getCantidadPersonas() +" --- "+"Precio de Reserva: "
+			System.out.println("numero de reserva " + reserva.getNumeroReserva() + "fecha de reserva  "
+					+ reserva.getFecha().getTime() + "cantidad de personas " + reserva.getCantidadPersonas() + "precio de reserva"
 					+ reserva.getPrecio());
 		}
 	}
