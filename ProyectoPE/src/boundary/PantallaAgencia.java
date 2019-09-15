@@ -48,7 +48,9 @@ public class PantallaAgencia {
 				break;
 			case 8:
 				a.verlistaclientes();
+				System.out.println();
 				a.getGestionCliente().eliminarCliente(a.getlClientes(), a.getListareservas());
+				System.out.println();
 				a.verlistaclientes();
 				break;
 
