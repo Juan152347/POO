@@ -115,7 +115,7 @@ public class PantallaAgencia {
 				a.reservarTour();
 				break;
 			case 10:
-				System.out.println("digite el codigo de la reserva:");
+				System.out.println("digite el codigo de la reserva: ");
 				long cod=sc.nextLong();
 				a.modificarreserva(cod);
 				
