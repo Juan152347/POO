@@ -18,7 +18,7 @@ public class Reserva {
     private double precio;
     
 	public double getPrecio() {
-		return precio;.
+		return precio;
 	}
 
 	public void setPrecio(double precio) {
