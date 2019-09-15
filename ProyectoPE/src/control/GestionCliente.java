@@ -17,14 +17,10 @@ public class GestionCliente {
 	public void llenarlistaCliente(ArrayList<Cliente> clientes){
 		Cliente aux=new Cliente(1034656717,"juanR","3005263714");
 		clientes.add(aux);
-		aux.setNumeroIdentificacion(632145897);
-		aux.setNombreCompleto("juanA");
-		aux.setTelefonoContacto("11111111");
-		clientes.add(aux);
-		aux.setNumeroIdentificacion(78896544);
-		aux.setNombreCompleto("mateo");
-		aux.setTelefonoContacto("8888888");
-		clientes.add(aux);
+		Cliente aux2=new Cliente(632145897,"juanA","11111111");
+		clientes.add(aux2);
+		Cliente aux3=new Cliente(78896544,"mateo","8888888");
+		clientes.add(aux3);
 	}
 ////////////////////////////////////// ELIMINAR CLIENTE /////////////////////////////////////////////////
 

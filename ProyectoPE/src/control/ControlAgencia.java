@@ -74,6 +74,7 @@ public class ControlAgencia {
 ////////////////////////////// VER LISTA DE TOURS ////////////////////////////////////////////////
 	public void verlistatours() {
 		for (Tour tour : this.listaTours) {
+			System.out.println("codigo"+" "+ "nombre"+" "+ "precio");
 			System.out.println(tour.getCodigoIdentidad() + " " + tour.getNombreComercial() + " " + tour.getPrecio());
 		}
 	}

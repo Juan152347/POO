@@ -16,18 +16,10 @@ public class GestionTours {
 	public void llenarlistaTour(ArrayList<Tour> listaTours) {
 		Tour aux = new Tour(5698423, "bahamas", "bogota", "2:30pm", 500000);
 		listaTours.add(aux);
-		aux.setCodigoIdentidad(6975321);
-		aux.setNombreComercial("Roma");
-		aux.setLugarPartida("bogota");
-		aux.setHoraPartida("10:00am");
-		aux.setPrecio(1200000);
-		listaTours.add(aux);
-		aux.setCodigoIdentidad(9856417);
-		aux.setNombreComercial("Ejipto");
-		aux.setLugarPartida("medellin");
-		aux.setHoraPartida("8:00pm");
-		aux.setPrecio(1200000);
-		listaTours.add(aux);
+		Tour aux2 = new Tour(6975321, "Roma", "bogota", "10:00am", 1200000);
+	    listaTours.add(aux2);
+	    Tour aux3 = new Tour(9856417, "Ejipto","medellin", "8:00pm", 1200000);
+		listaTours.add(aux3);
 	}
 //////////////////////////////////////// INSERTAR TOUR //////////////////////////////////////////////////
 
