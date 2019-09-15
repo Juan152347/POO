@@ -18,7 +18,7 @@ public class GestionTours {
 		listaTours.add(aux);
 		Tour aux2 = new Tour(6975321, "Roma", "bogota", "10:00am", 1200000);
 	    listaTours.add(aux2);
-	    Tour aux3 = new Tour(9856417, "Ejipto","medellin", "8:00pm", 1200000);
+	    Tour aux3 = new Tour(9856417, "Ejipto","medellin", "8:00pm", 1500000);
 		listaTours.add(aux3);
 	}
 //////////////////////////////////////// INSERTAR TOUR //////////////////////////////////////////////////
