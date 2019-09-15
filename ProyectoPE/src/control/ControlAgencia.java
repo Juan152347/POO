@@ -391,7 +391,7 @@ public class ControlAgencia {
 	public void verListadoReservas() {
 		for (Reserva reserva : reservas) {
 			System.out.println("numero de reserva " + reserva.getNumeroReserva() + "fecha de reserva  "
-					+ reserva.getFecha() + "cantidad de personas " + reserva.getCantidadPersonas() + "precio de reserva"
+					+ reserva.getFecha().getTime() + "cantidad de personas " + reserva.getCantidadPersonas() + "precio de reserva"
 					+ reserva.getPrecio());
 		}
 	}
