@@ -66,6 +66,7 @@ public class ControlAgencia {
 	public void setlClientes(ArrayList<Cliente> lClientes) {
 		this.listaClientes = lClientes;
 	}
+
 ////////////////////////////// VER LISTA DE TOURS ////////////////////////////////////////////////
 	public void verlistatours() {
 		for (Tour tour : this.listaTours) {
@@ -88,7 +89,7 @@ public class ControlAgencia {
 
 	}
 /////////////////////// VER LISTA CLIENTES REGISTRADOS ////////////////////////////////////////////
-	
+
 	public void verlistaclientes() {
 		for (Reserva reserva : this.reservas) {
 			System.out.println(
@@ -97,7 +98,6 @@ public class ControlAgencia {
 		}
 	}
 
-	
 	public void reservarTour() {
 		Scanner sc = new Scanner(System.in);
 		boolean estat = false, estac = false;
@@ -162,29 +162,55 @@ public class ControlAgencia {
 					long ca = sc.nextLong();
 					for (ServicioAdicional sa : sageneral) {
 						if (sa.getServicio() == ca) {
-                           auxr.getServiciosAdicionales().add(sa);
+							auxr.getServiciosAdicionales().add(sa);
 						}
 					}
 					System.out.println("quiere agregar otro servicio S/N");
-					op2=sc.next().charAt(0);
+					op2 = sc.next().charAt(0);
 				} while (op2 != 'n' || op2 != 'N');
 			}
 
 			auxr.setFecha(cal);
 			auxr.setTourReservado(auxt);
 			auxr.setCliente(auxc);
+			double ac = 0;
 			System.out.println("datos de reserva");
-			System.out.println("numero de reserva:"+auxr.getNumeroReserva());
-			System.out.println("fecha:"+auxr.getFecha().getTime());
-			System.out.println("tour:"+auxr.getTourReservado().getNombreComercial());
+			System.out.println("numero de reserva:" + " " + auxr.getNumeroReserva());
+			System.out.println("fecha:" + " " + auxr.getFecha().getTime());
+			System.out.println("nombre del tour:" + " " + auxr.getTourReservado().getNombreComercial());
+			System.out.println("hora de partida:" + " " + auxr.getTourReservado().getHoraPartida());
+			System.out.println("lugar de partida:" + " " + auxr.getTourReservado().getLugarPartida());
+			System.out.println("precio del tour:" + " " + auxr.getTourReservado().getPrecio());
+			System.out.println("Nombre del cliente:" + " " + auxr.getCliente().getNombreCompleto());
+			System.out.println("personas adicionales:" + " " + auxr.getCantidadPersonas());
+			System.out.println("servicios adicionales:");
+			for (ServicioAdicional ser : auxr.getServiciosAdicionales()) {
+				System.out.println("Nombre del servicio:" + ser.getNombreServicio());
+				System.out.println("precio:" + ser.getPrecio());
+				ac += ser.getPrecio();
+			}
+			double pto = calcularprecioreserva(auxr.getCantidadPersonas(), auxr.getTourReservado()) + ac;
+			System.out.println("precio:" + " " + pto);
+			System.out.println("desea realizar el pago S/N");
+			char op3 = sc.next().charAt(0);
+			if (op3 == 's' || op3 == 'S') {
+				auxr.setPagado(true);
+			} else {
+				auxr.setPagado(false);
+			}
+			reservas.add(auxr);
+		}else {
+			System.out.println("el tour o cliente no existe");
 		}
 
 	}
-    public double calcularprecioreserva(int cantidad, Tour tour) {
-    	double can=tour.getPrecio()*0.25;
-    	double ptotal=tour.getPrecio()+(can*cantidad);
-    	return ptotal;
-    }
+
+	public double calcularprecioreserva(int cantidad, Tour tour) {
+		double can = tour.getPrecio() * 0.25;
+		double ptotal = tour.getPrecio() + (can * cantidad);
+		return ptotal;
+	}
+
 	public long numerodereserva() {
 		long i = Math.round((Math.random() * (9999 - 1000 + 1) + 1000));
 		for (Reserva Reserva : reservas) {
@@ -215,33 +241,34 @@ public class ControlAgencia {
 			return false;
 		}
 	}
+
 ///////////////////////////////eliminar reserva (pediente a revision)//////////////////////////////////////////////////
-	public void eliminarReserva (long creserva) {
-		char confirmacion ;
-		boolean existe= false;
-		Scanner esc= new Scanner(System.in);
+	public void eliminarReserva(long creserva) {
+		char confirmacion;
+		boolean existe = false;
+		Scanner esc = new Scanner(System.in);
 		for (Reserva reserva : reservas) {
-			if( creserva==reserva.getNumeroReserva()) {
+			if (creserva == reserva.getNumeroReserva()) {
 				System.out.println("Desea eliminar esta reserva?");
-				confirmacion= esc.next().charAt(0);
-				if (confirmacion=='s') {
+				confirmacion = esc.next().charAt(0);
+				if (confirmacion == 's') {
 					reservas.remove(reservas.indexOf(reserva));
-					existe= true;
+					existe = true;
 					System.out.println("La eliminacion de la reserva ha sido correcta");
 				}
-			} 
+			}
 		}
 		if (existe == false) {
 			System.out.println("No existe ese numero de reserva");
 		}
 	}
+
 //////////////////////////////////ver listado de reservas existentes///////////////////////////////////////
 	public void verListadoReservas() {
 		for (Reserva reserva : reservas) {
-			System.out.println("numero de reserva "+reserva.getNumeroReserva()+ 
-					"fecha de reserva  "+ reserva.getFecha()+"cantidad de personas "+ 
-							reserva.getCantidadPersonas()+
-							"precio de reserva"+reserva.getPrecio());
+			System.out.println("numero de reserva " + reserva.getNumeroReserva() + "fecha de reserva  "
+					+ reserva.getFecha() + "cantidad de personas " + reserva.getCantidadPersonas() + "precio de reserva"
+					+ reserva.getPrecio());
 		}
 	}
 }
