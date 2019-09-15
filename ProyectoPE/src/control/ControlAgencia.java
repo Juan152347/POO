@@ -155,7 +155,7 @@ public class ControlAgencia {
 					System.out.println(sa.getPrecio());
 
 				}
-				char op2 = 's';
+				char op2;
 
 				do {
 					System.out.println("digite el codigo de servicio:");
@@ -199,7 +199,7 @@ public class ControlAgencia {
 				auxr.setPagado(false);
 			}
 			reservas.add(auxr);
-		}else {
+		} else {
 			System.out.println("el tour o cliente no existe");
 		}
 
@@ -242,6 +242,118 @@ public class ControlAgencia {
 		}
 	}
 
+	public boolean validarfechamod(Calendar fecha) {
+		for (Reserva reserva : reservas) {
+			if (reserva.getFecha().compareTo(fecha) == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+///////////////////////////////modificar reserva/////////////////////////////////////////////////////////////////////////
+	public void modificarreserva(long nreserva) {
+		boolean esta = false;
+		Reserva aux = new Reserva();
+		for (Reserva reserva : reservas) {
+			if (nreserva == reserva.getNumeroReserva()) {
+				esta = true;
+				aux = reserva;
+			}
+		}
+		if (esta) {
+			Scanner sc = new Scanner(System.in);
+			int op = 0;
+			boolean fval = false;
+			Calendar cal = Calendar.getInstance();
+			do {
+				System.out.println("que dato desea modificar: ");
+				System.out.println("1. fecha");
+				System.out.println("2. servicios adicionales");
+				System.out.println("3.cantidad de personas");
+				System.out.println("4.salir");
+				op = sc.nextInt();
+				switch (op) {
+				case 1:
+					while (!fval) {
+						System.out.println("digite la fecha de la reserva");
+						System.out.println("año:");
+						int año = sc.nextInt();
+						System.out.println("mes:");
+						int mes = sc.nextInt();
+						System.out.println("dia:");
+						int dia = sc.nextInt();
+						cal.set(año, mes, dia);
+						fval = validarfechamod(cal);
+						if (!fval) {
+							System.out.println("fecha invalida");
+						}
+					}
+					aux.setFecha(cal);
+					break;
+				case 2:
+					for (ServicioAdicional sa : aux.getServiciosAdicionales()) {
+						System.out.println("codigo del servicio:");
+						System.out.println(sa.getServicio());
+						System.out.println("Nombre del servicio:");
+						System.out.println(sa.getNombreServicio());
+						System.out.println("Precio:");
+						System.out.println(sa.getPrecio());
+					}
+					System.out.println("desea agregar o quitar servicios adicionales A/Q");
+					char op2 = sc.next().charAt(0);
+					if (op2 == 'A' || op2 == 'a') {
+						for (ServicioAdicional sa2 : sageneral) {
+							System.out.println("codigo del servicio:");
+							System.out.println(sa2.getServicio());
+							System.out.println("Nombre del servicio:");
+							System.out.println(sa2.getNombreServicio());
+							System.out.println("Precio:");
+							System.out.println(sa2.getPrecio());
+						}
+						char ops;
+						do {
+							System.out.println("digite el codigo del servicio que quiere agregar");
+							long cod = sc.nextLong();
+							for (ServicioAdicional sa3 : sageneral) {
+								if (sa3.getServicio() == cod) {
+									aux.getServiciosAdicionales().add(sa3);
+								}
+							}
+							System.out.println("desea agregar otro servicio S/N");
+							ops = sc.next().charAt(0);
+						} while (ops != 'n' || ops != 'N');
+					} else if (op2 == 'q' || op2 == 'Q') {
+						char ops2;
+						do {
+							System.out.println("digite el codigo del servicio que desea quitar:");
+							long cod2 = sc.nextLong();
+							for (ServicioAdicional sa4 : aux.getServiciosAdicionales()) {
+								if (sa4.getServicio() == cod2) {
+									aux.getServiciosAdicionales().remove(aux.getServiciosAdicionales().indexOf(sa4));
+								}
+							}
+							System.out.println("desea quitar otro servicio S/N:");
+							ops2 = sc.next().charAt(0);
+						} while (ops2 != 'n' || ops2 != 'N');
+					}
+					break;
+				case 3:
+					System.out.println("¿cuantas personas?");
+					int per = sc.nextInt();
+					if (per >= 1) {
+						aux.setCantidadPersonas(per);
+					} else {
+						System.out.println("tiene que haber minimo una persona");
+					}
+					break;
+				default:
+					break;
+				}
+			} while (op != 4);
+		}
+	}
+
 ///////////////////////////////eliminar reserva (pediente a revision)//////////////////////////////////////////////////
 	public void eliminarReserva(long creserva) {
 		char confirmacion;
@@ -271,12 +383,13 @@ public class ControlAgencia {
 					+ reserva.getPrecio());
 		}
 	}
+
 	public void verListadorReservaEsp(long codTour, Calendar fecha) {
 		int cont = 0;
-		for (Reserva reserva :reservas) {
-			if(codTour == reserva.getTourReservado().getCodigoIdentidad() && fecha == reserva.getFecha()) {
+		for (Reserva reserva : reservas) {
+			if (codTour == reserva.getTourReservado().getCodigoIdentidad() && fecha == reserva.getFecha()) {
 				System.out.println(cont + " " + reserva.getCliente().getNombreCompleto());
-				cont ++;
+				cont++;
 			}
 		}
 		System.out.println(cont + " personas iran al tour");
