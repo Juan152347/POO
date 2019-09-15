@@ -77,7 +77,7 @@ public class PantallaAgencia {
 				break;
 			case 2:
 				break;
-			case 6:
+			case 3:
 				break;
 			case 5:
 
@@ -101,7 +101,8 @@ public class PantallaAgencia {
 				a.getGestionCliente().insertarCliente(ID, nombre, telefono, a.getlClientes());
 				
 				break;
-			
+			case 7: 
+				
 
 			case 8:
 				a.verlistaclientes();
