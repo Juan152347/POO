@@ -26,6 +26,15 @@ public class PantallaAgencia {
 		c.setGestionCliente(g);
 		c1=new
 		*/
+		GestionTours t = new GestionTours();
+		GestionCliente c = new GestionCliente();
+		ControlAgencia a= new ControlAgencia();
+		
+		
+		a.setGestionCliente(c);
+		a.setGestiontours(t);
+		
+	
 
 	}	
 }
