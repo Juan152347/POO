@@ -13,7 +13,6 @@ import entity.Cliente;
 import entity.Reserva;
 import entity.Tour;
 
-
 public class PantallaAgencia {
 
 	private ControlAgencia agencia;
@@ -21,18 +20,17 @@ public class PantallaAgencia {
 	public PantallaAgencia() {
 		this.agencia = new ControlAgencia();
 	}
-	
+
 	public static void main(String[] args) {
-		
-		//para revisar eliminar cliente
-		/*GestionCliente g = new GestionCliente();
-		ControlAgencia c= new ControlAgencia();
-		Cliente cl= new Cliente();
-		c.setGestionCliente(g);
-		c1=new
-		*/
+
+		// para revisar eliminar cliente
+		/*
+		 * GestionCliente g = new GestionCliente(); ControlAgencia c= new
+		 * ControlAgencia(); Cliente cl= new Cliente(); c.setGestionCliente(g); c1=new
+		 */
 		GestionTours t = new GestionTours();
 		GestionCliente c = new GestionCliente();
+
 		ControlAgencia a= new ControlAgencia();
 		Cliente AA= new Cliente();
 		Tour A= new Tour();
@@ -40,13 +38,16 @@ public class PantallaAgencia {
 		
 		Reserva x = new Reserva(1999, fecha  , false, 15, AA, A);
 		a.getListareservas().add(x);
+
+		ControlAgencia a = new ControlAgencia();
+
+
 		Tour n = new Tour();
-		
-		
+
 		a.setGestionCliente(c);
 		a.setGestiontours(t);
 		int op;
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		do {
 			System.out.println("====================================");
 			System.out.println("seleccione una opcion");
@@ -62,17 +63,21 @@ public class PantallaAgencia {
 
 			System.out.println("14.salir");
 			System.out.println("====================================");
-		    op=sc.nextInt();
+			op = sc.nextInt();
 			switch (op) {
 			case 1:
 				a.verlistatours();
 				break;
 			case 2:
-				
+				break;
 			case 6:
+				break;
+			case 5:
+
 				a.verlistaclientes();
 				break;
 			case 7 :
+				
 				long ID;
 				String nombre,telefono;
 				
@@ -84,7 +89,8 @@ public class PantallaAgencia {
 				telefono=sc.next();
 				
 				a.getGestionCliente().insertarCliente(ID, nombre, telefono, a.getlClientes());
-			
+				
+				break;
 			
 			case 8:
 				a.verlistaclientes();
@@ -114,8 +120,8 @@ public class PantallaAgencia {
 			default:
 				break;
 			}
-			
-		}while(op!=14);
-		
-	}	
+
+		} while (op != 14);
+
+	}
 }
