@@ -271,4 +271,14 @@ public class ControlAgencia {
 					+ reserva.getPrecio());
 		}
 	}
+	public void verListadorReservaEsp(long codTour, Calendar fecha) {
+		int cont = 0;
+		for (Reserva reserva :reservas) {
+			if(codTour == reserva.getTourReservado().getCodigoIdentidad() && fecha == reserva.getFecha()) {
+				System.out.println(cont + " " + reserva.getCliente().getNombreCompleto());
+				cont ++;
+			}
+		}
+		System.out.println(cont + " personas iran al tour");
+	}
 }
