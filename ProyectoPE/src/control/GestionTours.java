@@ -26,22 +26,21 @@ public class GestionTours {
 ////////////////////////////////////////// ELIMINAR TOUR ////////////////////////////////////////////////////////
 
 	public void EliminarTour(long codigo, ArrayList<Tour> listaTours, ArrayList<Reserva> listaReserva) {
-
-		for (Tour tour : listaTours) {
-
-			if (tour.getCodigoIdentidad() == codigo) {
-				for (Reserva reserva : listaReserva) {
-					if (reserva.getTourReservado().getCodigoIdentidad() != codigo) {
-						listaTours.remove(listaTours.indexOf(tour));
-					}
-					else {System.out.println("El cliete presenta una reserva");}
-				}
-
-			} else {
-
-				System.out.println("El tour solicitado no existe");
+        boolean eliminable=true;
+		for (Reserva reserva : listaReserva) {
+			if (codigo==reserva.getTourReservado().getCodigoIdentidad()) {
+				eliminable=false;
 			}
-
+		}
+		if (eliminable) {
+			for (Tour tour : listaTours) {
+				if(codigo==tour.getCodigoIdentidad()) {
+					listaTours.remove(listaTours.indexOf(tour));
+					System.out.println("tour eliminado con exito");
+				}
+			}
+		}else {
+			System.out.println("no se puede eliminar el tour");
 		}
 	}
 
