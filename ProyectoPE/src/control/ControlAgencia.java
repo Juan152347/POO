@@ -22,8 +22,8 @@ public class ControlAgencia {
 	private ArrayList<ServicioAdicional> sageneral;
 
 	public ControlAgencia() {
-		GestionTours a=new GestionTours();
-		GestionCliente b=new GestionCliente();
+		GestionTours a = new GestionTours();
+		GestionCliente b = new GestionCliente();
 		this.listaTours = new ArrayList<>();
 		this.reservas = new ArrayList<>();
 		this.listaClientes = new ArrayList<>();
@@ -74,7 +74,7 @@ public class ControlAgencia {
 ////////////////////////////// VER LISTA DE TOURS ////////////////////////////////////////////////
 	public void verlistatours() {
 		for (Tour tour : this.listaTours) {
-			System.out.println("codigo"+" "+ "nombre"+" "+ "precio");
+			System.out.println("codigo" + " " + "nombre" + " " + "precio");
 			System.out.println(tour.getCodigoIdentidad() + " " + tour.getNombreComercial() + " " + tour.getPrecio());
 		}
 	}
@@ -96,10 +96,10 @@ public class ControlAgencia {
 /////////////////////// VER LISTA CLIENTES REGISTRADOS ////////////////////////////////////////////
 
 	public void verlistaclientes() {
-		for (Reserva reserva : this.reservas) {
-			System.out.println(
-					reserva.getCliente().getNumeroIdentificacion() + " " + reserva.getCliente().getNombreCompleto()
-							+ " " + reserva.getCantidadPersonas() + " " + reserva.getCliente().getTelefonoContacto());
+		for (Cliente cliente : this.listaClientes) {
+			System.out.println("numero de identificacion"+" "+"nombre"+" "+"telefono");
+			System.out.println(cliente.getNumeroIdentificacion() + " " + cliente.getNombreCompleto() + " "
+					+ cliente.getTelefonoContacto());
 		}
 	}
 

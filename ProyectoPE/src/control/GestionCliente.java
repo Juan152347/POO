@@ -24,23 +24,30 @@ public class GestionCliente {
 	}
 ////////////////////////////////////// ELIMINAR CLIENTE /////////////////////////////////////////////////
 
-	public void eliminarCliente(long cIdentificacion, ArrayList<Cliente> listaClientes, ArrayList<Reserva> reservas) {
-		Cliente aux = buscarCliente(cIdentificacion, listaClientes);
+	public void eliminarCliente( ArrayList<Cliente> listaClientes, ArrayList<Reserva> reservas) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("digite la identificacion del cliente");
+		Cliente aux=new Cliente();
+		long cIdentificacion=sc.nextLong();
+		boolean esta = buscarCliente(cIdentificacion, listaClientes);
 		boolean eliminable = true;
-		if (aux != null) {
+		if (esta) {
 			for (Reserva reserva : reservas) {
-				if (aux == reserva.getCliente()) {
+				if (cIdentificacion == reserva.getCliente().getNumeroIdentificacion()) {
 					eliminable = false;
 					System.out.println("no se puede eliminar el cliente");
 				}
 			}
 			if (eliminable) {
 				for (Cliente cliente : listaClientes) {
-					if (aux == cliente) {
-						listaClientes.remove(listaClientes.indexOf(cliente));
-						System.out.println("eliminacion exitosa");
+					if (cIdentificacion == cliente.getNumeroIdentificacion()) {
+						aux=cliente;
+						
 					}
+					
 				}
+				listaClientes.remove(aux);
+				System.out.println("eliminacion exitosa");
 			}
 		} 
 	else {
@@ -156,13 +163,13 @@ public class GestionCliente {
 
 /////   /////   /////   /////     /////   /////   /////     /////   /////   /////     /////   /////   /////
 
-	public Cliente buscarCliente(long ID, ArrayList<Cliente> listaClientes) {
+	public boolean buscarCliente(long ID, ArrayList<Cliente> listaClientes) {
 		for (Cliente cliente : listaClientes) {
 			if (ID == cliente.getNumeroIdentificacion()) {
-				return cliente;
+				return true;
 			}
 		}
-		return null;
+		return false;
 	}
 
 /////   /////   /////   /////     /////   /////   /////     /////   /////   /////     /////   /////   /////
