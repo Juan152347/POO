@@ -3,6 +3,9 @@ package boundary;
 import java.util.Calendar;
 import java.util.Calendar;
 import java.util.Scanner;
+
+import javax.sound.midi.Soundbank;
+
 import control.ControlAgencia;
 import control.GestionCliente;
 import control.GestionTours;
@@ -45,16 +48,20 @@ public class PantallaAgencia {
 		int op;
 		Scanner sc=new Scanner(System.in);
 		do {
+			System.out.println("====================================");
 			System.out.println("seleccione una opcion");
 			System.out.println("1.ver listados de tours disponibles");
-			System.out.println("5.Ver lista de clientes");
+			System.out.println("6.Ver lista de clientes");
+			System.out.println("7. Insertar cliente ");
 			System.out.println("8.eliminar cliente");
-
-			System.out.println("11. para eliminar reserva");
-			System.out.println("20. ver lista de reservas");
 			System.out.println("9.reservar tour");
+			System.out.println("11. Modificar datos de reserva");
+			System.out.println("12. para eliminar reserva");
+			System.out.println("13. ver lista de reservas existente");
+			
 
 			System.out.println("14.salir");
+			System.out.println("====================================");
 		    op=sc.nextInt();
 			switch (op) {
 			case 1:
@@ -62,9 +69,23 @@ public class PantallaAgencia {
 				break;
 			case 2:
 				
-			case 5:
+			case 6:
 				a.verlistaclientes();
 				break;
+			case 7 :
+				long ID;
+				String nombre,telefono;
+				
+				System.out.println("Ingrese un nuevo codigo ");
+				ID= sc.nextLong();
+				System.out.println("Ingrese nombre ");
+				nombre=sc.next();
+				System.out.println("Ingrese telefono ");
+				telefono=sc.next();
+				
+				a.getGestionCliente().insertarCliente(ID, nombre, telefono, a.getlClientes());
+			
+			
 			case 8:
 				a.verlistaclientes();
 				System.out.println();
@@ -73,12 +94,15 @@ public class PantallaAgencia {
 				a.verlistaclientes();
 				System.out.println();
 				break;
-
-			case 11: 
+			case 11:
+				System.out.println("ingrese la reserva que desea modificar");
+				a.modificarreserva(sc.nextLong());
+				break;
+			case 12: 
 				System.out.println("ingrese la reserva que desea eliminar: ");	
 				a.eliminarReserva(sc.nextLong());
 				break;
-			case 20: 
+			case 13: 
 				a.verListadoReservas();
 				break;
 
