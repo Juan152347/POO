@@ -35,6 +35,7 @@ public class GestionTours {
 ////////////////////////////////////////// ELIMINAR TOUR ////////////////////////////////////////////////////////
 
 	public void EliminarTour(long codigo, ArrayList<Tour> listaTours, ArrayList<Reserva> listaReserva) {
+		Tour aux = new Tour();
 		boolean eliminable = true;
 		for (Reserva reserva : listaReserva) {
 			if (codigo == reserva.getTourReservado().getCodigoIdentidad()) {
@@ -44,10 +45,11 @@ public class GestionTours {
 		if (eliminable) {
 			for (Tour tour : listaTours) {
 				if (codigo == tour.getCodigoIdentidad()) {
-					listaTours.remove(listaTours.indexOf(tour));
-					System.out.println("tour eliminado con exito");
+					aux = tour;
 				}
 			}
+			listaTours.remove(aux);
+			System.out.println("tour eliminado con exito");
 		} else {
 			System.out.println("no se puede eliminar el tour");
 		}
