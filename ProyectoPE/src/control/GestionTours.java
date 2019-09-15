@@ -12,6 +12,23 @@ public class GestionTours {
 
 	public GestionTours() {
 	}
+
+	public void llenarlista(ArrayList<Tour> listaTours) {
+		Tour aux = new Tour(5698423, "bahamas", "bogota", "2:30pm", 500000);
+		listaTours.add(aux);
+		aux.setCodigoIdentidad(6975321);
+		aux.setNombreComercial("Roma");
+		aux.setLugarPartida("bogota");
+		aux.setHoraPartida("10:00am");
+		aux.setPrecio(1200000);
+		listaTours.add(aux);
+		aux.setCodigoIdentidad(9856417);
+		aux.setNombreComercial("Ejipto");
+		aux.setLugarPartida("medellin");
+		aux.setHoraPartida("8:00pm");
+		aux.setPrecio(1200000);
+		listaTours.add(aux);
+	}
 //////////////////////////////////////// INSERTAR TOUR //////////////////////////////////////////////////
 
 	public void insertarTour(long codigo, String nombre, String lugarp, String hora, double precio,
@@ -26,27 +43,25 @@ public class GestionTours {
 ////////////////////////////////////////// ELIMINAR TOUR ////////////////////////////////////////////////////////
 
 	public void EliminarTour(long codigo, ArrayList<Tour> listaTours, ArrayList<Reserva> listaReserva) {
-        boolean eliminable=true;
+		boolean eliminable = true;
 		for (Reserva reserva : listaReserva) {
-			if (codigo==reserva.getTourReservado().getCodigoIdentidad()) {
-				eliminable=false;
+			if (codigo == reserva.getTourReservado().getCodigoIdentidad()) {
+				eliminable = false;
 			}
 		}
 		if (eliminable) {
 			for (Tour tour : listaTours) {
-				if(codigo==tour.getCodigoIdentidad()) {
+				if (codigo == tour.getCodigoIdentidad()) {
 					listaTours.remove(listaTours.indexOf(tour));
 					System.out.println("tour eliminado con exito");
 				}
 			}
-		}else {
+		} else {
 			System.out.println("no se puede eliminar el tour");
 		}
 	}
 
 //////////////////////////////////////// MODIFICAR TOUR //////////////////////////////////////////////////////////
-
-	
 
 	public void ModificarTour(long codigo, ArrayList<Tour> listaTours) {
 
@@ -154,7 +169,7 @@ public class GestionTours {
 		for (Tour tour : listaTours) {
 			if (tour.getCodigoIdentidad() == cod) {
 				tour.setHoraPartida(hora);
-				
+
 			}
 		}
 	}
