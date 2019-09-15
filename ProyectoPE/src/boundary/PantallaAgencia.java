@@ -8,7 +8,6 @@ import control.GestionTours;
 import entity.Cliente;
 import entity.Tour;
 
-
 public class PantallaAgencia {
 
 	private ControlAgencia agencia;
@@ -16,27 +15,24 @@ public class PantallaAgencia {
 	public PantallaAgencia() {
 		this.agencia = new ControlAgencia();
 	}
-	
+
 	public static void main(String[] args) {
-		
-		//para revisar eliminar cliente
-		/*GestionCliente g = new GestionCliente();
-		ControlAgencia c= new ControlAgencia();
-		Cliente cl= new Cliente();
-		c.setGestionCliente(g);
-		c1=new
-		*/
+
+		// para revisar eliminar cliente
+		/*
+		 * GestionCliente g = new GestionCliente(); ControlAgencia c= new
+		 * ControlAgencia(); Cliente cl= new Cliente(); c.setGestionCliente(g); c1=new
+		 */
 		GestionTours t = new GestionTours();
 		GestionCliente c = new GestionCliente();
-		ControlAgencia a= new ControlAgencia();
-		
+		ControlAgencia a = new ControlAgencia();
+
 		Tour n = new Tour();
-		
-		
+
 		a.setGestionCliente(c);
 		a.setGestiontours(t);
 		int op;
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		do {
 			System.out.println("====================================");
 			System.out.println("seleccione una opcion");
@@ -46,13 +42,14 @@ public class PantallaAgencia {
 			System.out.println("9.reservar tour");
 			System.out.println("14.salir");
 			System.out.println("====================================");
-		    op=sc.nextInt();
+			op = sc.nextInt();
 			switch (op) {
 			case 1:
 				a.verlistatours();
 				break;
 			case 2:
-				
+
+				break;
 			case 5:
 				a.verlistaclientes();
 				break;
@@ -71,8 +68,8 @@ public class PantallaAgencia {
 			default:
 				break;
 			}
-			
-		}while(op!=14);
-		
-	}	
+
+		} while (op != 14);
+
+	}
 }

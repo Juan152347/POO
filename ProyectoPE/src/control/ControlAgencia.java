@@ -249,8 +249,8 @@ public class ControlAgencia {
 
 	public boolean validarFecha(Calendar fecha) {
 		Calendar fechaA = Calendar.getInstance();
-		long mils = fechaA.getTimeInMillis() - fecha.getTimeInMillis();
-		long dias = mils / 1000 / 60 / 60 / 24;
+		long mils = Math.abs(fechaA.getTimeInMillis() - fecha.getTimeInMillis());
+		long dias = Math.abs(mils / 1000 / 60 / 60 / 24);
 		if (dias > 2) {
 			return true;
 		} else {
