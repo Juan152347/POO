@@ -343,7 +343,7 @@ public class ControlAgencia {
 							aux.getServiciosAdicionales().add(aux2);
 							System.out.println("desea agregar otro servicio S/N");
 							ops = sc.next().charAt(0);
-						} while (ops != 'n' || ops != 'N');
+						} while (ops == 's' || ops == 'S');
 					} else if (op2 == 'q' || op2 == 'Q') {
 						char ops2;
 						do {
@@ -358,7 +358,7 @@ public class ControlAgencia {
 							aux.getServiciosAdicionales().remove(aux3);
 							System.out.println("desea quitar otro servicio S/N:");
 							ops2 = sc.next().charAt(0);
-						} while (ops2 != 'n' || ops2 != 'N');
+						} while (ops2 == 's' || ops2 == 'S');
 					}
 					break;
 				case 3:
