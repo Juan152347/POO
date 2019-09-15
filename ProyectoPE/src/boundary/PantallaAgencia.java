@@ -53,17 +53,16 @@ public class PantallaAgencia {
 			System.out.println("====================================");
 			System.out.println("seleccione una opcion");
 			System.out.println("1.ver listados de tours disponibles");
-<<<<<<< HEAD
 			System.out.println("5.Ver lista de clientes");
 			System.out.println("6.insertar cliente");
 			System.out.println("7.modificar cliente");
-=======
+
 			System.out.println("6.Ver lista de clientes");
 			System.out.println("7. Insertar cliente ");
->>>>>>> branch 'master' of https://github.com/Juan152347/POO.git
+
 			System.out.println("8.eliminar cliente");
 			System.out.println("9.reservar tour");
-			System.out.println("11. Modificar datos de reserva");
+			System.out.println("10. Modificar datos de reserva");
 			System.out.println("12. para eliminar reserva");
 			System.out.println("13. ver lista de reservas existente");
 			
@@ -84,16 +83,14 @@ public class PantallaAgencia {
 
 				a.verlistaclientes();
 				break;
-<<<<<<< HEAD
+
 			//case 6:
 				//c.insertarCliente(100097190, "teppanyaki", 3102130, a.getlClientes());
 				//break;
 			case 7:
 				c.ModificarCliente(78896544, a.getlClientes());
-				break;
-=======
-			case 7 :
-				
+			
+		
 				long ID;
 				String nombre,telefono;
 				
@@ -108,7 +105,7 @@ public class PantallaAgencia {
 				
 				break;
 			
->>>>>>> branch 'master' of https://github.com/Juan152347/POO.git
+
 			case 8:
 				a.verlistaclientes();
 				a.getGestionCliente().eliminarCliente(a.getlClientes(), a.getListareservas());

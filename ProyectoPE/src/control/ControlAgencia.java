@@ -272,7 +272,8 @@ public class ControlAgencia {
 	public void modificarreserva(long nreserva) {
 		boolean esta = false;
 		Reserva aux = new Reserva();
-		Reserva aux2 =new Reserva();
+		ServicioAdicional aux2 =new ServicioAdicional();
+		ServicioAdicional aux3 =new ServicioAdicional();
 		for (Reserva reserva : reservas) {
 			if (nreserva == reserva.getNumeroReserva()) {
 				esta = true;
@@ -336,9 +337,10 @@ public class ControlAgencia {
 							for (ServicioAdicional sa3 : sageneral) {
 								if (sa3.getServicio() == cod) {
 									//aux.getServiciosAdicionales().add(sa3);
-									
+									aux2=sa3;
 								}
 							}
+							aux.getServiciosAdicionales().add(aux2);
 							System.out.println("desea agregar otro servicio S/N");
 							ops = sc.next().charAt(0);
 						} while (ops != 'n' || ops != 'N');
@@ -349,9 +351,11 @@ public class ControlAgencia {
 							long cod2 = sc.nextLong();
 							for (ServicioAdicional sa4 : aux.getServiciosAdicionales()) {
 								if (sa4.getServicio() == cod2) {
-									aux.getServiciosAdicionales().remove(aux.getServiciosAdicionales().indexOf(sa4));
+									//aux.getServiciosAdicionales().remove(aux.getServiciosAdicionales().indexOf(sa4));
+									aux3=sa4;
 								}
 							}
+							aux.getServiciosAdicionales().remove(aux3);
 							System.out.println("desea quitar otro servicio S/N:");
 							ops2 = sc.next().charAt(0);
 						} while (ops2 != 'n' || ops2 != 'N');
