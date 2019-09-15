@@ -14,6 +14,18 @@ public class GestionCliente {
 	
 	public GestionCliente() {
 	}
+	public void llenarlistaCliente(ArrayList<Cliente> clientes){
+		Cliente aux=new Cliente(1034656717,"juanR","3005263714");
+		clientes.add(aux);
+		aux.setNumeroIdentificacion(632145897);
+		aux.setNombreCompleto("juanA");
+		aux.setTelefonoContacto("11111111");
+		clientes.add(aux);
+		aux.setNumeroIdentificacion(78896544);
+		aux.setNombreCompleto("mateo");
+		aux.setTelefonoContacto("8888888");
+		clientes.add(aux);
+	}
 ////////////////////////////////////// ELIMINAR CLIENTE /////////////////////////////////////////////////
 
 	public void eliminarCliente(long cIdentificacion, ArrayList<Cliente> listaClientes, ArrayList<Reserva> reservas) {

@@ -22,9 +22,13 @@ public class ControlAgencia {
 	private ArrayList<ServicioAdicional> sageneral;
 
 	public ControlAgencia() {
+		GestionTours a=new GestionTours();
+		GestionCliente b=new GestionCliente();
 		this.listaTours = new ArrayList<>();
 		this.reservas = new ArrayList<>();
 		this.listaClientes = new ArrayList<>();
+		a.llenarlistaTour(listaTours);
+		b.llenarlistaCliente(listaClientes);
 	}
 
 	public GestionTours getGestiontours() {

@@ -13,7 +13,7 @@ public class GestionTours {
 	public GestionTours() {
 	}
 
-	public void llenarlista(ArrayList<Tour> listaTours) {
+	public void llenarlistaTour(ArrayList<Tour> listaTours) {
 		Tour aux = new Tour(5698423, "bahamas", "bogota", "2:30pm", 500000);
 		listaTours.add(aux);
 		aux.setCodigoIdentidad(6975321);
