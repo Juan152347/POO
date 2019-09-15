@@ -34,6 +34,7 @@ public class PantallaAgencia {
 		int op;
 		Scanner sc = new Scanner(System.in);
 		do {
+
 			System.out.println("====================================");
 			System.out.println("seleccione una opcion");
 			System.out.println("1.ver listados de tours disponibles");
@@ -46,6 +47,7 @@ public class PantallaAgencia {
 			switch (op) {
 			case 1:
 				a.verlistatours();
+				
 				break;
 			case 2:
 
@@ -64,12 +66,22 @@ public class PantallaAgencia {
 			case 9:
 				a.reservarTour();
 				break;
-
+			case 10:
+				System.out.println("digite el codigo de la reserva:");
+				long cod=sc.nextLong();
+				a.modificarreserva(cod);
+				
+				break;
 			default:
 				break;
 			}
 
 		} while (op != 14);
 
+	}
+	public static void limpiar() {
+		for (int i=0;i<200;i++) {
+			System.out.println();
+		}
 	}
 }
