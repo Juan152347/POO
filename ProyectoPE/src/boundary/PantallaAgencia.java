@@ -84,10 +84,7 @@ public class PantallaAgencia {
 				a.verlistaclientes();
 				break;
 
-			//case 6:
-				//c.insertarCliente(100097190, "teppanyaki", 3102130, a.getlClientes());
-				//break;
-			case 7:
+			case 6:
 				c.ModificarCliente(78896544, a.getlClientes());
 			
 		
