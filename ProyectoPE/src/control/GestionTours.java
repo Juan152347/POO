@@ -13,21 +13,13 @@ public class GestionTours {
 	public GestionTours() {
 	}
 
-	public void llenarlista(ArrayList<Tour> listaTours) {
+	public void llenarlistaTour(ArrayList<Tour> listaTours) {
 		Tour aux = new Tour(5698423, "bahamas", "bogota", "2:30pm", 500000);
 		listaTours.add(aux);
-		aux.setCodigoIdentidad(6975321);
-		aux.setNombreComercial("Roma");
-		aux.setLugarPartida("bogota");
-		aux.setHoraPartida("10:00am");
-		aux.setPrecio(1200000);
-		listaTours.add(aux);
-		aux.setCodigoIdentidad(9856417);
-		aux.setNombreComercial("Ejipto");
-		aux.setLugarPartida("medellin");
-		aux.setHoraPartida("8:00pm");
-		aux.setPrecio(1200000);
-		listaTours.add(aux);
+		Tour aux2 = new Tour(6975321, "Roma", "bogota", "10:00am", 1200000);
+	    listaTours.add(aux2);
+	    Tour aux3 = new Tour(9856417, "Ejipto","medellin", "8:00pm", 1500000);
+		listaTours.add(aux3);
 	}
 //////////////////////////////////////// INSERTAR TOUR //////////////////////////////////////////////////
 
@@ -43,6 +35,7 @@ public class GestionTours {
 ////////////////////////////////////////// ELIMINAR TOUR ////////////////////////////////////////////////////////
 
 	public void EliminarTour(long codigo, ArrayList<Tour> listaTours, ArrayList<Reserva> listaReserva) {
+		Tour aux = new Tour();
 		boolean eliminable = true;
 		for (Reserva reserva : listaReserva) {
 			if (codigo == reserva.getTourReservado().getCodigoIdentidad()) {
@@ -52,10 +45,11 @@ public class GestionTours {
 		if (eliminable) {
 			for (Tour tour : listaTours) {
 				if (codigo == tour.getCodigoIdentidad()) {
-					listaTours.remove(listaTours.indexOf(tour));
-					System.out.println("tour eliminado con exito");
+					aux = tour;
 				}
 			}
+			listaTours.remove(aux);
+			System.out.println("tour eliminado con exito");
 		} else {
 			System.out.println("no se puede eliminar el tour");
 		}

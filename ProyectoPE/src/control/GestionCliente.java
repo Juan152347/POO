@@ -14,25 +14,40 @@ public class GestionCliente {
 	
 	public GestionCliente() {
 	}
+	public void llenarlistaCliente(ArrayList<Cliente> clientes){
+		Cliente aux=new Cliente(1034656717,"juanR","3005263714");
+		clientes.add(aux);
+		Cliente aux2=new Cliente(632145897,"juanA","11111111");
+		clientes.add(aux2);
+		Cliente aux3=new Cliente(78896544,"mateo","8888888");
+		clientes.add(aux3);
+	}
 ////////////////////////////////////// ELIMINAR CLIENTE /////////////////////////////////////////////////
 
-	public void eliminarCliente(long cIdentificacion, ArrayList<Cliente> listaClientes, ArrayList<Reserva> reservas) {
-		Cliente aux = buscarCliente(cIdentificacion, listaClientes);
+	public void eliminarCliente( ArrayList<Cliente> listaClientes, ArrayList<Reserva> reservas) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("digite la identificacion del cliente");
+		Cliente aux=new Cliente();
+		long cIdentificacion=sc.nextLong();
+		boolean esta = buscarCliente(cIdentificacion, listaClientes);
 		boolean eliminable = true;
-		if (aux != null) {
+		if (esta) {
 			for (Reserva reserva : reservas) {
-				if (aux == reserva.getCliente()) {
+				if (cIdentificacion == reserva.getCliente().getNumeroIdentificacion()) {
 					eliminable = false;
 					System.out.println("no se puede eliminar el cliente");
 				}
 			}
 			if (eliminable) {
 				for (Cliente cliente : listaClientes) {
-					if (aux == cliente) {
-						listaClientes.remove(listaClientes.indexOf(cliente));
-						System.out.println("eliminacion exitosa");
+					if (cIdentificacion == cliente.getNumeroIdentificacion()) {
+						aux=cliente;
+						
 					}
+					
 				}
+				listaClientes.remove(aux);
+				System.out.println("eliminacion exitosa");
 			}
 		} 
 	else {
@@ -148,13 +163,13 @@ public class GestionCliente {
 
 /////   /////   /////   /////     /////   /////   /////     /////   /////   /////     /////   /////   /////
 
-	public Cliente buscarCliente(long ID, ArrayList<Cliente> listaClientes) {
+	public boolean buscarCliente(long ID, ArrayList<Cliente> listaClientes) {
 		for (Cliente cliente : listaClientes) {
 			if (ID == cliente.getNumeroIdentificacion()) {
-				return cliente;
+				return true;
 			}
 		}
-		return null;
+		return false;
 	}
 
 /////   /////   /////   /////     /////   /////   /////     /////   /////   /////     /////   /////   /////

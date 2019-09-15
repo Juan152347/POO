@@ -1,6 +1,7 @@
 package boundary;
 
 import java.util.Calendar;
+import java.util.Scanner;
 
 import control.ControlAgencia;
 import control.GestionCliente;
@@ -33,8 +34,29 @@ public class PantallaAgencia {
 		
 		a.setGestionCliente(c);
 		a.setGestiontours(t);
-		
-	
+		int op;
+		Scanner sc=new Scanner(System.in);
+		do {
+			System.out.println("seleccione una opcion");
+			System.out.println("1.ver listados de tours disponibles");
+			System.out.println("8.eliminar cliente");
+			System.out.println("14.salir");
+		    op=sc.nextInt();
+			switch (op) {
+			case 1:
+				a.verlistatours();
+				break;
+			case 8:
+				a.verlistaclientes();
+				a.getGestionCliente().eliminarCliente(a.getlClientes(), a.getListareservas());
+				a.verlistaclientes();
+				break;
 
+			default:
+				break;
+			}
+			
+		}while(op!=14);
+		
 	}	
 }
