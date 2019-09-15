@@ -22,9 +22,9 @@ public class PantallaAgencia {
 	}
 
 	public static void main(String[] args) {
-
+		//sirve?
 		// para revisar eliminar cliente
-		/*
+		/*/S
 		 * GestionCliente g = new GestionCliente(); ControlAgencia c= new
 		 * ControlAgencia(); Cliente cl= new Cliente(); c.setGestionCliente(g); c1=new
 		 */
