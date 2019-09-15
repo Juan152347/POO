@@ -2,7 +2,6 @@ package boundary;
 
 import java.util.Calendar;
 import java.util.Scanner;
-
 import control.ControlAgencia;
 import control.GestionCliente;
 import control.GestionTours;
@@ -31,6 +30,8 @@ public class PantallaAgencia {
 		GestionCliente c = new GestionCliente();
 		ControlAgencia a= new ControlAgencia();
 		
+		Tour n = new Tour();
+		
 		
 		a.setGestionCliente(c);
 		a.setGestiontours(t);
@@ -47,6 +48,8 @@ public class PantallaAgencia {
 			case 1:
 				a.verlistatours();
 				break;
+			case 2:
+				
 			case 5:
 				a.verlistaclientes();
 				break;
