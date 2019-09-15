@@ -40,6 +40,8 @@ public class PantallaAgencia {
 			System.out.println("seleccione una opcion");
 			System.out.println("1.ver listados de tours disponibles");
 			System.out.println("5.Ver lista de clientes");
+			System.out.println("6.insertar cliente");
+			System.out.println("7.modificar cliente");
 			System.out.println("8.eliminar cliente");
 			System.out.println("14.salir");
 		    op=sc.nextInt();
@@ -49,6 +51,12 @@ public class PantallaAgencia {
 				break;
 			case 5:
 				a.verlistaclientes();
+				break;
+			//case 6:
+				//c.insertarCliente(100097190, "teppanyaki", 3102130, a.getlClientes());
+				//break;
+			case 7:
+				c.ModificarCliente(78896544, a.getlClientes());
 				break;
 			case 8:
 				a.verlistaclientes();
