@@ -22,13 +22,23 @@ public class ControlAgencia {
 	private ArrayList<ServicioAdicional> sageneral;
 
 	public ControlAgencia() {
+
 		GestionTours a = new GestionTours();
 		GestionCliente b = new GestionCliente();
 		this.listaTours = new ArrayList<>();
 		this.reservas = new ArrayList<>();
 		this.listaClientes = new ArrayList<>();
+		this.sageneral= new ArrayList<>();
 		a.llenarlistaTour(listaTours);
 		b.llenarlistaCliente(listaClientes);
+		llenarserv();
+	}
+	public void llenarserv() {
+		ServicioAdicional saux=new ServicioAdicional(1,"mini nevera",15000);
+		sageneral.add(saux);
+		ServicioAdicional saux2=new ServicioAdicional(2,"habitacion con ventana",15000);
+		sageneral.add(saux2);
+		ServicioAdicional saux3=new ServicioAdicional(1,"servicio al cuarto",15000);
 	}
 
 	public GestionTours getGestiontours() {
@@ -173,7 +183,7 @@ public class ControlAgencia {
 					}
 					System.out.println("quiere agregar otro servicio S/N");
 					op2 = sc.next().charAt(0);
-				} while (op2 != 'n' || op2 != 'N');
+				} while (op2 == 's' || op2 == 'S');
 			}
 
 			auxr.setFecha(cal);
@@ -239,8 +249,8 @@ public class ControlAgencia {
 
 	public boolean validarFecha(Calendar fecha) {
 		Calendar fechaA = Calendar.getInstance();
-		long mils = fechaA.getTimeInMillis() - fecha.getTimeInMillis();
-		long dias = mils / 1000 / 60 / 60 / 24;
+		long mils = Math.abs(fechaA.getTimeInMillis() - fecha.getTimeInMillis());
+		long dias = Math.abs(mils / 1000 / 60 / 60 / 24);
 		if (dias > 2) {
 			return true;
 		} else {
@@ -262,6 +272,7 @@ public class ControlAgencia {
 	public void modificarreserva(long nreserva) {
 		boolean esta = false;
 		Reserva aux = new Reserva();
+		Reserva aux2 =new Reserva();
 		for (Reserva reserva : reservas) {
 			if (nreserva == reserva.getNumeroReserva()) {
 				esta = true;
@@ -324,7 +335,8 @@ public class ControlAgencia {
 							long cod = sc.nextLong();
 							for (ServicioAdicional sa3 : sageneral) {
 								if (sa3.getServicio() == cod) {
-									aux.getServiciosAdicionales().add(sa3);
+									//aux.getServiciosAdicionales().add(sa3);
+									
 								}
 							}
 							System.out.println("desea agregar otro servicio S/N");
@@ -382,7 +394,7 @@ public class ControlAgencia {
 	public void verListadoReservas() {
 		for (Reserva reserva : reservas) {
 			System.out.println("numero de reserva " + reserva.getNumeroReserva() + "fecha de reserva  "
-					+ reserva.getFecha() + "cantidad de personas " + reserva.getCantidadPersonas() + "precio de reserva"
+					+ reserva.getFecha().getTime() + "cantidad de personas " + reserva.getCantidadPersonas() + "precio de reserva"
 					+ reserva.getPrecio());
 		}
 	}
