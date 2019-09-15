@@ -11,7 +11,9 @@ import entity.Cliente;
 import entity.Tour;
 
 public class GestionCliente {
-
+	
+	public GestionCliente() {
+	}
 ////////////////////////////////////// ELIMINAR CLIENTE /////////////////////////////////////////////////
 
 	public void eliminarCliente(long cIdentificacion, ArrayList<Cliente> listaClientes, ArrayList<Reserva> reservas) {
