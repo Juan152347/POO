@@ -22,7 +22,7 @@ public class ControlAgencia {
 	private ArrayList<ServicioAdicional> sageneral;
 
 	public ControlAgencia() {
-		System.out.println("g");
+
 		GestionTours a = new GestionTours();
 		GestionCliente b = new GestionCliente();
 		this.listaTours = new ArrayList<>();

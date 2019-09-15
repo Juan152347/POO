@@ -38,12 +38,14 @@ public class PantallaAgencia {
 		int op;
 		Scanner sc=new Scanner(System.in);
 		do {
+			System.out.println();
 			System.out.println("seleccione una opcion");
 			System.out.println("1.ver listados de tours disponibles");
 			System.out.println("5.Ver lista de clientes");
 			System.out.println("8.eliminar cliente");
 			System.out.println("9.reservar tour");
 			System.out.println("14.salir");
+			System.out.println();
 		    op=sc.nextInt();
 			switch (op) {
 			case 1:
