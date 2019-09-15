@@ -39,12 +39,16 @@ public class PantallaAgencia {
 		do {
 			System.out.println("seleccione una opcion");
 			System.out.println("1.ver listados de tours disponibles");
+			System.out.println("5.Ver lista de clientes");
 			System.out.println("8.eliminar cliente");
 			System.out.println("14.salir");
 		    op=sc.nextInt();
 			switch (op) {
 			case 1:
 				a.verlistatours();
+				break;
+			case 5:
+				a.verlistaclientes();
 				break;
 			case 8:
 				a.verlistaclientes();
