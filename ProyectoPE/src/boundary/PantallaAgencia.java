@@ -41,6 +41,7 @@ public class PantallaAgencia {
 			System.out.println("1.ver listados de tours disponibles");
 			System.out.println("5.Ver lista de clientes");
 			System.out.println("8.eliminar cliente");
+			System.out.println("9.reservar tour");
 			System.out.println("14.salir");
 		    op=sc.nextInt();
 			switch (op) {
@@ -57,6 +58,9 @@ public class PantallaAgencia {
 				System.out.println();
 				a.verlistaclientes();
 				System.out.println();
+				break;
+			case 9:
+				a.reservarTour();
 				break;
 
 			default:

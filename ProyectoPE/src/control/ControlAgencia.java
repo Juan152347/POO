@@ -27,8 +27,17 @@ public class ControlAgencia {
 		this.listaTours = new ArrayList<>();
 		this.reservas = new ArrayList<>();
 		this.listaClientes = new ArrayList<>();
+		this.sageneral= new ArrayList<>();
 		a.llenarlistaTour(listaTours);
 		b.llenarlistaCliente(listaClientes);
+		llenarserv();
+	}
+	public void llenarserv() {
+		ServicioAdicional saux=new ServicioAdicional(1,"mini nevera",15000);
+		sageneral.add(saux);
+		ServicioAdicional saux2=new ServicioAdicional(2,"habitacion con ventana",15000);
+		sageneral.add(saux2);
+		ServicioAdicional saux3=new ServicioAdicional(1,"servicio al cuarto",15000);
 	}
 
 	public GestionTours getGestiontours() {
@@ -173,7 +182,7 @@ public class ControlAgencia {
 					}
 					System.out.println("quiere agregar otro servicio S/N");
 					op2 = sc.next().charAt(0);
-				} while (op2 != 'n' || op2 != 'N');
+				} while (op2 == 's' || op2 == 'S');
 			}
 
 			auxr.setFecha(cal);
