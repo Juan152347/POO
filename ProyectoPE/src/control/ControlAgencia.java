@@ -119,7 +119,7 @@ public class ControlAgencia {
 		boolean estat = false, estac = false;
 		Tour auxt = new Tour();
 		Cliente auxc = new Cliente();
-		System.out.println("digite codigo de identificacion del tour");
+		System.out.println("digite codigo de identificacion del tour :");
 		long codt = sc.nextLong();
 		for (Tour tour : listaTours) {
 			if (tour.getCodigoIdentidad() == codt) {
@@ -127,7 +127,7 @@ public class ControlAgencia {
 				auxt = tour;
 			}
 		}
-		System.out.println("digite el numero de identificacion del cliente");
+		System.out.println("digite el numero de identificacion del cliente :");
 		long codc = sc.nextLong();
 		for (Cliente cliente : listaClientes) {
 			if (cliente.getNumeroIdentificacion() == codc) {
@@ -141,7 +141,7 @@ public class ControlAgencia {
 			auxr.setNumeroReserva(numerodereserva());
 			Calendar cal = Calendar.getInstance();
 			while (!fval) {
-				System.out.println("digite la fecha de la reserva");
+				System.out.println("digite la fecha de la reserva :");
 				System.out.println("año:");
 				int año = sc.nextInt();
 				System.out.println("mes:");
@@ -207,6 +207,7 @@ public class ControlAgencia {
 			}
 			double pto = calcularprecioreserva(auxr.getCantidadPersonas(), auxr.getTourReservado()) + ac;
 			System.out.println("precio:" + " " + pto);
+			auxr.setPrecio(pto);
 			System.out.println("desea realizar el pago S/N");
 			char op3 = sc.next().charAt(0);
 			if (op3 == 's' || op3 == 'S') {
