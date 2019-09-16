@@ -85,7 +85,7 @@ public class PantallaAgencia {
 				break;
 
 			case 6:
-				c.ModificarCliente(78896544, a.getlClientes());
+			
 			
 		
 				long ID;
@@ -102,7 +102,8 @@ public class PantallaAgencia {
 				
 				break;
 			case 7: 
-				
+				c.ModificarCliente(78896544, a.getlClientes());
+				break;
 
 			case 8:
 				a.verlistaclientes();
