@@ -30,11 +30,12 @@ public class PantallaAgencia {
 		 */
 		GestionTours t = new GestionTours();
 		GestionCliente c = new GestionCliente();
-
+		Calendar fecha = Calendar.getInstance();
 		ControlAgencia a= new ControlAgencia();
 		Cliente AA= new Cliente();
 		Tour A= new Tour();
-		Calendar fecha = Calendar.getInstance();
+		Tour B= new Tour(4596, "xpress", "miami","2:38pm", 5000);
+	
 		
 		Reserva x = new Reserva(1999, fecha  , false, 15, AA, A);
 		a.getListareservas().add(x);
