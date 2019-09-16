@@ -31,6 +31,10 @@ public class PantallaAgencia {
 		GestionTours t = new GestionTours();
 		GestionCliente c = new GestionCliente();
 		Calendar fecha = Calendar.getInstance();
+		fecha.set(Calendar.HOUR_OF_DAY, 0);
+		fecha.set(Calendar.MINUTE, 0);
+		fecha.set(Calendar.SECOND, 0);
+		fecha.set(Calendar.MILLISECOND, 0);
 		ControlAgencia a= new ControlAgencia();
 		Cliente AA= new Cliente();
 		Tour A= new Tour();
@@ -157,6 +161,10 @@ public class PantallaAgencia {
 				int ares = sc.nextInt();
 				
 				Calendar fech = Calendar.getInstance();
+				fech.set(Calendar.HOUR_OF_DAY, 0);
+				fech.set(Calendar.MINUTE, 0);
+				fech.set(Calendar.SECOND, 0);
+				fech.set(Calendar.MILLISECOND, 0);
 				fech.set(ares, mesr, diar);
 				
 				a.verListadorReservaEsp(codeg, fech);

@@ -149,6 +149,10 @@ public class ControlAgencia {
 				System.out.println("dia:");
 				int dia = sc.nextInt();
 				cal.set(año, mes, dia);
+				cal.set(Calendar.HOUR_OF_DAY, 0);
+				cal.set(Calendar.MINUTE, 0);
+				cal.set(Calendar.SECOND, 0);
+				cal.set(Calendar.MILLISECOND, 0);
 				fval = validarFecha(cal, auxc, auxt);
 				fval = validarFecha(cal);
 				if (!fval) {
@@ -398,8 +402,8 @@ public class ControlAgencia {
 
 	public void verListadoReservas() {
 		for (Reserva reserva : reservas) {
-			System.out.println("Numero de Reserva: " + reserva.getNumeroReserva()+" --- " + "Fecha de Reserva: "
-					+ reserva.getFecha().getTime() +" --- " +"Cantidad de Personas: " + reserva.getCantidadPersonas() +" --- "+ "precio de reserva: "
+			System.out.println("numero de reserva " + reserva.getNumeroReserva() + "fecha de reserva  "
+					+ reserva.getFecha().getTime() + "cantidad de personas " + reserva.getCantidadPersonas() + "precio de reserva"
 					+ reserva.getPrecio());
 		}
 	}
@@ -408,7 +412,7 @@ public class ControlAgencia {
 	public void verListadorReservaEsp(long codTour, Calendar fecha) {
 		int cont = 0;
 		for (Reserva reserva : reservas) {
-			if (codTour == reserva.getTourReservado().getCodigoIdentidad() && fecha == reserva.getFecha()) {
+			if (codTour == reserva.getTourReservado().getCodigoIdentidad() && fecha.compareTo(reserva.getFecha())==0) {
 				System.out.println(cont + " " + reserva.getCliente().getNombreCompleto());
 				cont++;
 			}
