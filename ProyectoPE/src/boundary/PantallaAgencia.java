@@ -65,7 +65,7 @@ public class PantallaAgencia {
 			System.out.println("10. Modificar datos de reserva");
 			System.out.println("11.eliminar reserva de tour");
 			System.out.println("12. ver lista de reservas existente");
-			System.out.println("13. ver lista de reservas para un tour y una fecha espesifica");
+			System.out.println("13. ver lista de reservas para un tour y una fecha especifica");
 			System.out.println("14.salir");
 			System.out.println("====================================");
 			op = sc.nextInt();
