@@ -102,6 +102,13 @@ public class PantallaAgencia {
 				t.ModificarTour(code, a.getListaTours());
 			
 				break;
+			case 4:
+				System.out.println("Digite el codigo del tour que desea eliminar");
+				long codigTour = sc.nextLong();
+				t.EliminarTour(codigTour, a.getListaTours() , a.getListareservas());
+				
+			
+				break;
 			case 5:
 
 				a.verlistaclientes();
