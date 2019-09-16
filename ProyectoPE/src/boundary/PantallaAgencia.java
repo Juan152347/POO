@@ -147,7 +147,19 @@ public class PantallaAgencia {
 			case 12: 
 				a.verListadoReservas();
 			case 13: 
+				System.out.println("Ingrese el codigo del tour");
+				long codeg = sc.nextLong();
+				System.out.println("Ingrese el dia de la reserva");
+				int diar = sc.nextInt();
+				System.out.println("Ingrese el mes de la reserva");
+				int mesr = sc.nextInt();
+				System.out.println("Ingrese el año de la reserva");
+				int ares = sc.nextInt();
 				
+				Calendar fech = Calendar.getInstance();
+				fech.set(ares, mesr, diar);
+				
+				a.verListadorReservaEsp(codeg, fech);
 				break;
 
 			default:
