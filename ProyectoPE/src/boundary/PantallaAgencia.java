@@ -74,8 +74,33 @@ public class PantallaAgencia {
 				
 				break;
 			case 2:
+				System.out.println("Digite el codigo del tour");
+				long codig = sc.nextLong();
+				System.out.println("Digite nombre del tour");
+				String nombr = sc.next();
+				System.out.println("Ingrese el lugar de partida");
+				String lugPart = sc.next();
+				System.out.println("Ingrese la hora de partida");
+				String hora = sc.next();
+				System.out.println("Digite el precio");
+				double prec = sc.nextDouble();
+				
+				
+				boolean conf = t.insertarTour(codig, nombr, lugPart, hora, prec, a.getListaTours());
+				if(conf == true) {
+					System.out.println("tour insertado");
+				}
+				
+				if(conf == false) {
+					System.out.println("inserte los datos nuevamente");
+				}
 				break;
+				
 			case 3:
+				System.out.println("Digite el codigo del tour que desea modificar");
+				long code = sc.nextLong();
+				t.ModificarTour(code, a.getListaTours());
+			
 				break;
 			case 5:
 

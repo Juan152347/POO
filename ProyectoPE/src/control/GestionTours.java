@@ -23,13 +23,18 @@ public class GestionTours {
 	}
 //////////////////////////////////////// INSERTAR TOUR //////////////////////////////////////////////////
 
-	public void insertarTour(long codigo, String nombre, String lugarp, String hora, double precio,
+	public boolean insertarTour(long codigo, String nombre, String lugarp, String hora, double precio,
 			ArrayList<Tour> ListaTours) {
 		ControlAgencia ca = new ControlAgencia();
 		Tour ntour = new Tour(codigo, nombre, lugarp, hora, precio);
-		if (ca.validarTour(codigo)) {
+		if (ca.validarTour(codigo) == true) {
 			ListaTours.add(ntour);
 		}
+		if(ca.validarTour(codigo) == false) {
+			System.out.println("codigo no permitido");
+			return false;
+		}
+		return true;
 	}
 
 ////////////////////////////////////////// ELIMINAR TOUR ////////////////////////////////////////////////////////
