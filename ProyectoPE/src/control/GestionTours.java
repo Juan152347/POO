@@ -17,8 +17,8 @@ public class GestionTours {
 		Tour aux = new Tour(5698423, "bahamas", "bogota", "2:30pm", 500000);
 		listaTours.add(aux);
 		Tour aux2 = new Tour(6975321, "Roma", "bogota", "10:00am", 1200000);
-	    listaTours.add(aux2);
-	    Tour aux3 = new Tour(9856417, "Egipto","medellin", "8:00pm", 1500000);
+		listaTours.add(aux2);
+		Tour aux3 = new Tour(9856417, "Egipto", "medellin", "8:00pm", 1500000);
 		listaTours.add(aux3);
 	}
 //////////////////////////////////////// INSERTAR TOUR //////////////////////////////////////////////////
@@ -30,7 +30,7 @@ public class GestionTours {
 		if (ca.validarTour(codigo) == true) {
 			ListaTours.add(ntour);
 		}
-		if(ca.validarTour(codigo) == false) {
+		if (ca.validarTour(codigo) == false) {
 			System.out.println("codigo no permitido");
 			return false;
 		}
@@ -66,10 +66,8 @@ public class GestionTours {
 
 		Scanner x = new Scanner(System.in);
 		int p = 0;
-
-		do {
-
-			if (VerificarExistencia(codigo, listaTours)) {
+		if (VerificarExistencia(codigo, listaTours)) {
+			do {
 
 				System.out.println("Marque el numero de la opcion que desea modificar:");
 				System.out.println("1.Codigo");
@@ -110,12 +108,12 @@ public class GestionTours {
 
 				}
 
-			}
+			} while (p != 6);
+		}
 
-			else {
-				System.out.println("El Tour solicitado no existe");
-			}
-		} while (p != 6);
+		else {
+			System.out.println("El Tour solicitado no existe");
+		}
 	}
 
 ////////////////////////////////////  VERIFICAR EXISTENCIA /////////////////////////////////////////	
