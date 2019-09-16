@@ -152,42 +152,6 @@ public class GestionCliente {
 	}
 	  return false;
   }
-///////////////////////////////// MOD NOMBRE CLIENTE /////////////////////////////////////////////////////7/
-
-	public void mod(long ID, String nombre, ArrayList<Cliente> listaCliente) {
-		for (Cliente cliente : listaCliente) {
-			if (cliente.getNumeroIdentificacion() == ID) {
-				cliente.setNombreCompleto(nombre);
-			}
-		}
-	}
-
-/////////////////////////////////// MOD ID CLIENTE //////////////////////////////////////////////////
-
-	public void mod(long ID, ArrayList<Cliente> listaCliente, long IDn) {
-		boolean idesta = false;
-		for (Cliente cliente : listaCliente) {
-			if (IDn == cliente.getNumeroIdentificacion()) {
-				idesta = true;
-			}
-		}
-		for (Cliente cliente : listaCliente) {
-			if (cliente.getNumeroIdentificacion() == ID && idesta == false) {
-				cliente.setNumeroIdentificacion(IDn);
-
-			}
-		}
-	}
-
-/////////////////////////////// MOD TELEFONO CLIENTE ////////////////////////////////////////////
-
-	public void mod(String telefono, long ID, ArrayList<Cliente> listaCliente) {
-		for (Cliente cliente : listaCliente) {
-			if (cliente.getNumeroIdentificacion() == ID) {
-				cliente.setTelefonoContacto(telefono);
-			}
-		}
-	}
 
 //////////////////////////////// INSERTAR CLIENTE ///////////////////////////////////////////////
 
