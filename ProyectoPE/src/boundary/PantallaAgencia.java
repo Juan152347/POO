@@ -56,10 +56,8 @@ public class PantallaAgencia {
 			System.out.println("5.Ver lista de clientes");
 			System.out.println("6.insertar cliente");
 			System.out.println("7.modificar cliente");
-
 			System.out.println("6.Ver lista de clientes");
 			System.out.println("7. Insertar cliente ");
-
 			System.out.println("8.eliminar cliente");
 			System.out.println("9.reservar tour");
 			System.out.println("10. Modificar datos de reserva");
@@ -85,9 +83,6 @@ public class PantallaAgencia {
 				break;
 
 			case 6:
-			
-			
-		
 				long ID;
 				String nombre,telefono;
 				
