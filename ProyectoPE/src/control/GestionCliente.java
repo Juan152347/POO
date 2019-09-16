@@ -61,9 +61,11 @@ public class GestionCliente {
 
 		Scanner x = new Scanner(System.in);
 		int op = 0;
+		
+		if (VerificarExistencia(ID, listaClientes)) {
 		do {
-
-			if (VerificarExistencia(ID, listaClientes)) {
+            
+			
 
 				System.out.println("Marque el numero de la opcion que desea modificarr:");
 				System.out.println("1.Nombre");
@@ -76,30 +78,59 @@ public class GestionCliente {
 				switch (op) {
 
 				case 2:
-
+					
+                   Cliente aux2= new Cliente();
 					System.out.println("Ingrese su nuevo numero de identificacion: ");
-					mod(ID, listaClientes, x.nextLong());
+				
+					long n=x.nextLong();
+					boolean esta=estanumerocliente(n,listaClientes);
+					
+					if(!esta) {
+						for (Cliente cliente : listaClientes) {
+							if(cliente.getNumeroIdentificacion()==ID) {
+								aux2=cliente;
+							}
+						}
+						aux2.setNumeroIdentificacion(n);
+					}else {
+						System.out.println("hay un cliente con ese id");
+					}
+					
 					break;
 
 				case 1:
-
+                    Cliente aux=new Cliente();
 					System.out.println("Ingrese su nuevo nombre");
-					mod(ID, x.nextLine(), listaClientes);
+					x.next();
+					String nombre=x.nextLine();
+					for(Cliente cli: listaClientes) {
+						if(cli.getNumeroIdentificacion()==ID) {
+						aux=cli;
+						}
+					}
+					aux.setNombreCompleto(nombre);
 					break;
 
 				case 3:
-
+					Cliente aux3=new Cliente();
 					System.out.println("Ingrese su nuevo numero de contacto");
-					mod(x.nextLine(), ID, listaClientes);
+					x.next();
+					String nc=x.nextLine();
+					for (Cliente cliente : listaClientes) {
+						if (cliente.getNumeroIdentificacion()==ID) {
+							aux3=cliente;
+						}
+					}
+					aux3.setTelefonoContacto(nc);
 					break;
 				}
-			}
-
-			else {
-				System.out.println("El cliente solicitado no exist");
-			}
+			
 		} while (op != 4);
+		}
 
+		else {
+			System.out.println("El cliente solicitado no existe");
+		}
 	}
 
 //////////////////////////////// VERIFICAR EXISTENCIA ///////////////////////////////////////////
@@ -113,7 +144,14 @@ public class GestionCliente {
 		}
 		return false;
 	}
-
+  public boolean estanumerocliente(long ID, ArrayList<Cliente> listaClientes) {
+	  for (Cliente cliente : listaClientes) {
+		if(ID==cliente.getNumeroIdentificacion()) {
+			return true;
+		}
+	}
+	  return false;
+  }
 ///////////////////////////////// MOD NOMBRE CLIENTE /////////////////////////////////////////////////////7/
 
 	public void mod(long ID, String nombre, ArrayList<Cliente> listaCliente) {
