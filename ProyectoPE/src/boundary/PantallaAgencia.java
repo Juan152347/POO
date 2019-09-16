@@ -56,7 +56,7 @@ public class PantallaAgencia {
 			System.out.println("1.ver listados de tours disponibles");
 			System.out.println("2.insertar tour");
 			System.out.println("3.modificar tour");
-			System.out.println("eliminar tour");
+			System.out.println("4.eliminar tour");
 			System.out.println("5.Ver lista de clientes");
 			System.out.println("6.insertar cliente");
 			System.out.println("7.modificar cliente");
