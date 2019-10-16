@@ -11,7 +11,7 @@ public class ServicioAdicional {
 	public void setServicio(long servicio) {
 		Servicio = servicio;
 	}
-	public String getNombreServicio() {
+	public String getNombreServicio() { 
 		return nombreServicio;
 	}
 	public void setNombreServicio(String nombreServicio) {
