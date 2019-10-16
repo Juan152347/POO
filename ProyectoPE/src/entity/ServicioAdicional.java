@@ -1,4 +1,4 @@
-package servicioAdicional;
+package entity;
 
 public class ServicioAdicional {
 
