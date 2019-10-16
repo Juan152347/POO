@@ -137,10 +137,11 @@ public class ControlAgencia {
 		}
 		if (estat && estac) {
 			boolean fval = false;
+			boolean fval2=false;
 			Reserva auxr = new Reserva();
 			auxr.setNumeroReserva(numerodereserva());
 			Calendar cal = Calendar.getInstance();
-			while (!fval) {
+			while (!fval && !fval2) {
 				System.out.println("digite la fecha de la reserva :");
 				System.out.println("año:");
 				int año = sc.nextInt();
@@ -154,7 +155,7 @@ public class ControlAgencia {
 				cal.set(Calendar.SECOND, 0);
 				cal.set(Calendar.MILLISECOND, 0);
 				fval = validarFecha(cal, auxc, auxt);
-				fval = validarFecha(cal);
+				fval2 = validarFecha(cal);
 				if (!fval) {
 					System.out.println("no se puede hacer la reserva intente de nuevo");
 				}
